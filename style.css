@@ -4,8 +4,13 @@
 	box-sizing: border-box;
 }
 
-.header {
+.header,
+.second-section,
+.third-section {
 	height: 50dvh;
+}
+
+.header {
 	background: #1f2937;
 	color: white;
 	display: flex;
@@ -18,6 +23,7 @@
 }
 .header-content h1 {
 	font-size: 24px;
+	color: #f9faf8;
 }
 
 ul {
@@ -45,16 +51,18 @@ ul {
 	font-size: 48px;
 	font-weight: 900;
 	margin-bottom: 10px;
+	color: #f9faf8;
 }
 
 .right-side p {
 	font-size: 18px;
 	margin-bottom: 10px;
+	color: #e5e7eb;
 }
 
-.right-side button {
+.right-side button,
+.contact button {
 	padding: 8px 16px;
-	font-size: 18px;
 	color: white;
 	background: #3882f6;
 	border: none;
@@ -68,10 +76,6 @@ ul {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-
-.second-section {
-	height: 50dvh;
 }
 
 .second-section h2 {
@@ -100,4 +104,64 @@ ul {
 	border: 2px solid #3882f6;
 	border-radius: 16px;
 	margin-bottom: 10px;
+}
+
+.third-section {
+	background: #e5e7eb;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.qoute-container {
+	width: 800px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.qoute {
+	font-size: 36px;
+	font-style: italic;
+	font-weight: 300;
+}
+
+.credit {
+	align-self: end;
+	font-size: 24px;
+	font-weight: bold;
+	color: #1f2937;
+}
+
+.fourth-section {
+	height: 40dvh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 18px;
+}
+
+.contact {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 40%;
+	width: 70%;
+	background: #3882f6;
+	color: white;
+	border-radius: 5px;
+}
+
+.contact button {
+	border: 2px solid white;
+}
+
+.footer {
+	height: 10dvh;
+	background: #1f2937;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
