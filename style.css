@@ -69,3 +69,35 @@ ul {
 	justify-content: center;
 	align-items: center;
 }
+
+.second-section {
+	height: 50dvh;
+}
+
+.second-section h2 {
+	padding: 36px;
+	font-size: 36px;
+	text-align: center;
+	font-weight: 900;
+}
+
+.cards-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 32px;
+	color: #1f2937;
+}
+
+.card {
+	width: 150px;
+	text-align: center;
+}
+
+.cardbox {
+	height: 150px;
+	width: 150px;
+	border: 2px solid #3882f6;
+	border-radius: 16px;
+	margin-bottom: 10px;
+}
