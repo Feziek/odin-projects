@@ -1,63 +1,54 @@
 let userScore = 0;
 let computerScore = 0;
-let rounds = 5;
+const buttons = document.querySelectorAll('button');
+const resultContainer = document.querySelector('.result');
 
 function getComputerChoice() {
-	const randomNum = Math.floor(Math.random() * 3) + 1;
+	const hand = ['rock', 'paper', 'scissors'];
+	const randomNum = Math.floor(Math.random() * 3);
 
-	if (randomNum === 1) {
-		return 'rock';
-	} else if (randomNum === 2) {
-		return 'paper';
-	} else {
-		return 'scissors';
-	}
+	return hand[randomNum];
 }
 
-function getUserChoice() {
-	const setUserChoice = prompt(
-		"Let's play a game! Please select: rock, paper, or scissors"
-	);
-
-	if (!setUserChoice || !setUserChoice.trim()) {
-		alert('Please choose!');
-		return getUserChoice();
-	}
-
-	return setUserChoice.toLowerCase();
+function getUserChoice(choice) {
+	return choice.textContent.toLowerCase();
 }
 
-function playRound() {
-	const userChoice = getUserChoice();
+function playRound(btn) {
+	const userChoice = getUserChoice(btn);
 	const computerChoice = getComputerChoice();
+
 	if (userChoice === computerChoice) {
-		alert(`Tied! You: ${userScore} Computer: ${computerScore}`);
-		rounds--;
+		resultContainer.textContent = `Stalemate! Both chose ${userChoice}. Scores stay at ${userScore} - ${computerScore}.`;
 	} else if (
 		(userChoice === 'paper' && computerChoice === 'rock') ||
 		(userChoice === 'rock' && computerChoice === 'scissors') ||
 		(userChoice === 'scissors' && computerChoice === 'paper')
 	) {
 		userScore++;
-		alert(
-			`You win, ${userChoice} beats ${computerChoice}. You: ${userScore} Computer: ${computerScore}.`
-		);
-		rounds--;
+		resultContainer.textContent = `Point to you! Your ${userChoice} absolutely crushes the computer's ${computerChoice}. [You: ${userScore} | CPU: ${computerScore}]`;
 	} else {
 		computerScore++;
-		alert(
-			`You lose, ${computerChoice} beats ${userChoice} You: ${userScore} Computer: ${computerScore}.`
-		);
-		rounds--;
+		resultContainer.textContent = `Ouch! The computer's ${computerChoice} beats your ${userChoice}. [You: ${userScore} | CPU: ${computerScore}]`;
 	}
 
-	if (rounds === 0) {
-		alert(
-			`That was wonderful! You score ${userScore} point/s out of 5 rounds.`
-		);
-	} else {
-		playRound();
+	if (userScore === 5) {
+		resultContainer.textContent = ` YOU WIN! You dominated the machine ${userScore} to ${computerScore}. Earth is safe!`;
+		stopGame();
+	} else if (computerScore === 5) {
+		resultContainer.textContent = `GAME OVER. The computer wins ${computerScore} to ${userScore}. Better luck next time, human.`;
+		stopGame();
 	}
 }
 
-playRound();
+function stopGame() {
+	buttons.forEach(btn => {
+		btn.disabled = true;
+	});
+}
+
+buttons.forEach(btn => {
+	btn.addEventListener('click', () => {
+		playRound(btn);
+	});
+});
