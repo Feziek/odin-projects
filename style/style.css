@@ -1,0 +1,37 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: 100vh;
+}
+
+main {
+	height: 100%;
+	display: flex;
+}
+
+.hero-section {
+	flex: 1;
+	background: url('../assets/images/background.jpg') no-repeat center / cover;
+	position: relative;
+}
+
+.logo-section {
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 30%;
+}
+
+.logo-section > img {
+	height: 100px;
+}
+
+.form-section {
+	flex: 2;
+}
