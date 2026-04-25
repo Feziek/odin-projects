@@ -7,7 +7,6 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	font-family: 'Norse';
 }
 
 body {
@@ -39,8 +38,19 @@ main {
 }
 
 .logo-name {
+	font-family: 'Norse';
 	font-size: 5rem;
 	font-weight: bold;
+}
+
+.hero-section > p {
+	color: white;
+	background: rgba(0, 0, 0, 0.4);
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	white-space: nowrap;
 }
 
 .logo-section > img {
