@@ -19,13 +19,13 @@ main {
 }
 
 .hero-section {
+	color: white;
 	flex: 1;
 	background: url('../assets/images/background.jpg') no-repeat center / cover;
 	position: relative;
 }
 
 .logo-section {
-	color: white;
 	padding: 10px;
 	display: flex;
 	align-items: center;
@@ -37,6 +37,10 @@ main {
 	background-color: rgba(0, 0, 0, 0.4);
 }
 
+.logo-section > img {
+	height: 100px;
+}
+
 .logo-name {
 	font-family: 'Norse';
 	font-size: 5rem;
@@ -44,17 +48,16 @@ main {
 }
 
 .hero-section > p {
-	color: white;
-	background: rgba(0, 0, 0, 0.4);
 	position: absolute;
 	bottom: 10px;
 	left: 50%;
 	transform: translateX(-50%);
 	white-space: nowrap;
+	font-size: 0.9rem;
 }
 
-.logo-section > img {
-	height: 100px;
+.hero-section a {
+  color: white;
 }
 
 .form-section {
