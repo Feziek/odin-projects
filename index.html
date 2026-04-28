@@ -4,8 +4,117 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet" />
 		<title>Admin Dashboard</title>
 		<link rel="stylesheet" href="./css/style.css" />
 	</head>
-	<body></body>
+	<body>
+		<div class="main-container">
+			<aside class="sidebar">
+				<div class="sidebar-heading">
+					<img src="./assets/icon/dashboard.svg" class="icon" />
+					<h1>Dashboard</h1>
+				</div>
+				<nav class="upper-nav">
+					<ul>
+						<li><img src="./assets/icon/home.svg" alt="home-icon" />Home</li>
+						<li>
+							<img src="./assets/icon/account.svg" alt="Home-icon" />Profile
+						</li>
+						<li>
+							<img
+								src="./assets/icon/message.svg"
+								alt="Messages-icon" />Messages
+						</li>
+						<li>
+							<img src="./assets/icon/history.svg" alt="History-icon" />History
+						</li>
+						<li><img src="./assets/icon/task.svg" alt="Tasks-icon" />Tasks</li>
+						<li>
+							<img
+								src="./assets/icon/community.svg"
+								alt="Community-icon" />Communities
+						</li>
+					</ul>
+				</nav>
+				<nav class="lower-nav">
+					<ul>
+						<li>
+							<img
+								src="./assets/icon/settings.svg"
+								alt="Settings-icon" />Settings
+						</li>
+						<li>
+							<img src="./assets/icon/tools.svg" alt="Support-icon" />Support
+						</li>
+						<li>
+							<img src="./assets/icon/security.svg" alt="Privacy-logo" />Privacy
+						</li>
+					</ul>
+				</nav>
+			</aside>
+			<main class="content-container">
+				<header>
+					<section class="upper-header">
+						<div class="upper-left">
+							<img
+								class="icon"
+								src="./assets/icon/magnify.svg"
+								alt="Search-icon" />
+							<input type="text" />
+						</div>
+						<div class="upper-right">
+							<img
+								class="icon"
+								src="./assets/icon/bell.svg"
+								alt="notification-icon" />
+							<div class="avatar"></div>
+							<h2>Joseph Sabado</h2>
+						</div>
+					</section>
+					<section class="lower-header">
+						<div class="lower-left">
+							<div class="big-avatar"></div>
+							<div class="greeting">
+								<p>Hi there,</p>
+								<h2>Joseph Sabado (@Zef)</h2>
+							</div>
+						</div>
+						<div class="lower-right">
+							<button>New</button>
+							<button>Upload</button>
+							<button>Share</button>
+						</div>
+					</section>
+				</header>
+				<article class="main-content">
+					<h3>Your Projects</h3>
+					<section class="grid-container">
+						<div class="card"></div>
+						<div class="card"></div>
+						<div class="card"></div>
+						<div class="card"></div>
+						<div class="card"></div>
+						<div class="card"></div>
+					</section>
+				</article>
+				<aside class="news">
+					<section class="announcements">
+						<div class="announcement-card"></div>
+						<div class="announcement-card"></div>
+						<div class="announcement-card"></div>
+					</section>
+					<section class="trending">
+						<div class="trending-section"></div>
+						<div class="trending-section"></div>
+						<div class="trending-section"></div>
+					</section>
+				</aside>
+			</main>
+		</div>
+	</body>
 </html>
