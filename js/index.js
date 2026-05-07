@@ -79,6 +79,7 @@ const GameController = (() => {
 			console.log('Invalid move. The tile is already taken');
 			console.log(`Please enter your move again ${currentPlayer.name}`);
 			console.log(`Current player: ${currentPlayer.name}`);
+			return
 		}
 
 		if (gameStatus === 'active') {
