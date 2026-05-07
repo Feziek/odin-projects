@@ -1,0 +1,152 @@
+@font-face {
+	font-family: 'Norse';
+	src: url('../assets/fonts/Norse.otf');
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: 100vh;
+}
+
+main {
+	height: 100%;
+	display: flex;
+}
+
+.hero-section {
+	color: white;
+	flex: 1;
+	background: url('../assets/images/background.jpg') no-repeat center / cover;
+	position: relative;
+}
+
+.logo-section {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	position: absolute;
+	top: 20%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.logo-section > img {
+	height: 100px;
+}
+
+.logo-name {
+	font-family: 'Norse';
+	font-size: 5rem;
+	font-weight: bold;
+}
+
+.hero-section > p {
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	white-space: nowrap;
+	font-size: 0.9rem;
+}
+
+.hero-section a {
+	color: white;
+}
+
+.form-section {
+	flex: 2;
+	background-color: rgb(249, 250, 251);
+	/*padding: 100px 30px;*/
+}
+
+.upper-section {
+	margin-top: 150px;
+	margin-left: 30px;
+	font-size: 1.4rem;
+	font-weight: 500;
+}
+
+.form-heading {
+	margin-bottom: 20px;
+	width: 70%;
+}
+
+.form-heading + p {
+	margin-bottom: 40px;
+}
+
+form {
+	padding: 20px 30px;
+	background-color: white;
+	box-shadow: 1px 5px 5px rgb(0, 0, 0, 0.1);
+	position: relative;
+}
+
+fieldset {
+	border: none;
+}
+
+legend {
+	font-size: 1.6rem;
+	font-weight: 500;
+	margin-bottom: 15px;
+}
+
+label {
+	display: block;
+	font-size: 0.75rem;
+	font-weight: 550;
+	letter-spacing: 0.08em;
+	color: #444;
+}
+
+.form-row {
+	display: flex;
+	gap: 40px;
+	margin-bottom: 20px;
+}
+
+input {
+	padding: 10px 15px;
+	border: 1px solid rgb(229, 231, 235);
+	color: rgb(55, 65, 81);
+	border-radius: 3px;
+	outline: none;
+}
+
+input:focus {
+	border: 1px solid rgb(59, 130, 246);
+	box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+input:invalid {
+	border: 1px solid rgb(220, 38, 38);
+}
+
+form button {
+	border: none;
+	border-radius: 8px;
+	color: white;
+	background-color: #596d48;
+	font-weight: 500;
+	padding: 13px 50px;
+	position: absolute;
+	bottom: -70px;
+}
+
+.login-link {
+	margin-top: 100px;
+	margin-left: 30px;
+	font-weight: 500;
+}
+
+.login-link a {
+	color: #596d48;
+}
