@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<title>Library</title>
+	</head>
+	<body>
+		<header>
+			<h1>Library</h1>
+			<button class="add-btn">Add Book</button>
+		</header>
+		<main>
+			<section class="book-section"></section>
+			<p class="get-started">
+				The Library is empty. Please add a book to get started.
+			</p>
+			<section class="modal">
+				<h2>Add Book Record</h2>
+				<form>
+					<section>
+						<label for="title">Title</label>
+						<input type="text" id="title" required />
+					</section>
+					<section>
+						<label for="author">Author</label>
+						<input type="text" id="author" required />
+					</section>
+					<section>
+						<label for="pages">Pages</label>
+						<input type="number" id="pages" required />
+					</section>
+					<button type="submit" class="add-btn submit">Add</button>
+					<button type="reset" class="clear">Clear</button>
+					<button type="button" class="close">Close</button>
+				</form>
+			</section>
+			<script src="./js/index.js"></script>
+		</main>
+	</body>
+</html>
