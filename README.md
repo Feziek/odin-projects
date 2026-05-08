@@ -1,4 +1,3 @@
-```
 # odin-projects
 
 A monorepo of frontend projects built while working through [The Odin Project](https://www.theodinproject.com/) curriculum — an open-source full-stack web development course.
