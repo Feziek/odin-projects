@@ -21,8 +21,8 @@ const GameBoard = (() => {
 })();
 
 const GameController = (() => {
-	const player1 = createPlayer('Player 1', 'O');
-	const player2 = createPlayer('Player 2', 'X');
+	const player1 = createPlayer('Player 1', 'X');
+	const player2 = createPlayer('Player 2', 'O');
 	const winningCombinations = [
 		[0, 1, 2],
 		[3, 4, 5],
@@ -79,7 +79,7 @@ const GameController = (() => {
 			console.log('Invalid move. The tile is already taken');
 			console.log(`Please enter your move again ${currentPlayer.name}`);
 			console.log(`Current player: ${currentPlayer.name}`);
-			return
+			return;
 		}
 
 		if (gameStatus === 'active') {
@@ -108,4 +108,62 @@ const GameController = (() => {
 	};
 })();
 
-console.log("Let's play Tic Tac Toe");
+const DisplayController = (() => {
+	const boxes = Array.from(document.querySelectorAll('.box'));
+	const displayTurn = document.querySelector('.turn');
+	const restartBtn = document.querySelector('.restart-btn');
+
+	const renderBoard = () => {
+		const board = GameBoard.getBoard();
+		boxes.forEach((box, index) => {
+			box.textContent = board[index] ?? '';
+			if (box.textContent === 'X') {
+				box.classList.add('x-box');
+				box.classList.remove('o-box');
+			} else {
+				box.classList.add('o-box');
+				box.classList.remove('x-box');
+			}
+		});
+	};
+
+	const updateStatus = () => {
+		const gameStatus = GameController.getGameStatus();
+		const currentPlayer = GameController.getCurrentPlayer();
+
+		switch (gameStatus) {
+			case 'active':
+				displayTurn.textContent = `${currentPlayer.name}'s Turn`;
+				if (currentPlayer.marker === 'X') {
+					displayTurn.classList.replace('o-turn', 'x-turn');
+				} else {
+					displayTurn.classList.replace('x-turn', 'o-turn');
+				}
+				break;
+			case 'won':
+				displayTurn.textContent = `${GameController.getPlayerWinner().name} Wins!`;
+				break;
+			case 'tied':
+				displayTurn.textContent = "It's a tie";
+				break;
+		}
+	};
+
+	const initializeGame = () => {
+		boxes.forEach(box => {
+			box.addEventListener('click', () => {
+				const index = Number(box.dataset.index);
+				GameController.playRound(index);
+				renderBoard();
+				updateStatus();
+			});
+		});
+		restartBtn.addEventListener('click', () => {
+			GameController.restartGame();
+			renderBoard();
+			updateStatus();
+		});
+	};
+
+	initializeGame();
+})();
