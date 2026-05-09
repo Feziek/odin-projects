@@ -36,6 +36,7 @@ const GameController = (() => {
 	let playerWinner;
 	let currentPlayer = player1;
 	let gameStatus = 'active';
+	let winningBox;
 
 	const switchPlayer = () => {
 		if (currentPlayer === player1) {
@@ -61,6 +62,7 @@ const GameController = (() => {
 				gameStatus = 'won';
 				playerWinner = currentPlayer;
 				console.log(`The winner is: ${playerWinner.name}`);
+				winningBox = [first, second, third];
 				break;
 			}
 		}
@@ -92,17 +94,20 @@ const GameController = (() => {
 		currentPlayer = player1;
 		gameStatus = 'active';
 		playerWinner = undefined;
+		winningBox = undefined;
 		console.log('The game has been reset.');
 	};
 
 	const getCurrentPlayer = () => currentPlayer;
 	const getPlayerWinner = () => playerWinner;
 	const getGameStatus = () => gameStatus;
+	const getWinningBox = () => winningBox;
 
 	return {
 		getCurrentPlayer,
 		getPlayerWinner,
 		getGameStatus,
+		getWinningBox,
 		playRound,
 		restartGame
 	};
