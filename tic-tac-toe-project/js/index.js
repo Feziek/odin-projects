@@ -121,6 +121,7 @@ const DisplayController = (() => {
 	const renderBoard = () => {
 		const board = GameBoard.getBoard();
 		boxes.forEach((box, index) => {
+			const winningBox = GameController.getWinningBox();
 			box.textContent = board[index] ?? '';
 			if (box.textContent === 'X') {
 				box.classList.add('x-box');
@@ -128,6 +129,14 @@ const DisplayController = (() => {
 			} else {
 				box.classList.add('o-box');
 				box.classList.remove('x-box');
+			}
+
+			if (winningBox && winningBox.includes(index)) {
+				if (box.textContent === 'X') {
+					box.classList.add('x-box-win');
+				} else {
+					box.classList.add('o-box-win');
+				}
 			}
 		});
 	};
