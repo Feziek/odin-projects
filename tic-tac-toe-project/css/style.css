@@ -62,16 +62,16 @@ h1 {
 }
 
 .turn {
-  font-weight: 700;
-  transition: color 0.3s ease;
+	font-weight: 700;
+	transition: color 0.3s ease;
 }
 
 .turn.x-turn {
-  color: var(--color-x); /* teal */
+	color: var(--color-x); /* teal */
 }
 
 .turn.o-turn {
-  color: var(--color-o); /* yellow */
+	color: var(--color-o); /* yellow */
 }
 
 header {
@@ -115,6 +115,14 @@ main {
 	transition:
 		transform 0.1s ease,
 		box-shadow 0.1s ease;
+}
+
+.box.x-box {
+	color: var(--color-x);
+}
+
+.box.o-box {
+	color: var(--color-o);
 }
 
 .box-container > .box:hover {
