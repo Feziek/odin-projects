@@ -1,5 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap');
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--bg-main: #1a2b35;
+	--bg-box: #1e3040;
+	--bg-turn: #2a3d4a;
+	--color-x: #3dcfb2;
+	--color-o: #f5a623;
+	--btn-reset: #8a9baa;
+	--glow-wrapper:
+		0 0 20px rgba(61, 207, 178, 0.4), 0 0 40px rgba(61, 207, 178, 0.2);
+	--font-main: 'Nunito', sans-serif;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100dvh;
+	justify-content: center;
+	align-items: center;
+	padding: 12px;
+	background-color: var(--bg-main);
+	font-family: var(--font-main);
+}
+
+h1 {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 800;
+	color: white;
+	position: fixed;
+	top: 20px;
+	left: 0;
+	right: 0;
+}
+
+.wrapper {
+	width: 100%;
+	max-width: 370px;
+	background-color: var(--bg-box);
+	border: 1px solid rgba(61, 207, 178, 0.15);
+	border-radius: 24px;
+	box-shadow: var(--glow-wrapper);
+}
+
+.x {
+	color: var(--color-x);
+	font-size: 2rem;
+	font-weight: 900;
+}
+
+.o {
+	color: var(--color-o);
+	font-size: 2rem;
+	font-weight: 900;
+}
+
+.turn {
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.turn.x-turn {
+  color: var(--color-x); /* teal */
+}
+
+.turn.o-turn {
+  color: var(--color-o); /* yellow */
+}
+
+header {
+	padding: 24px 24px 8px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: white;
+	font-size: 1rem;
+	font-weight: 700;
+}
+
+.turn {
+	color: rgba(255, 255, 255, 0.7);
+	font-weight: 600;
+}
+
+main {
+	text-align: center;
+	padding-bottom: 8px;
+}
+
+.box-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 16px;
+	padding: 16px;
+}
+
+.box-container > .box {
+	height: 95px;
+	background-color: var(--bg-main);
+	border-radius: 16px;
+	box-shadow: 0 8px 5px rgba(0, 0, 0, 0.7);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2rem;
+	font-weight: 800;
+	transition:
+		transform 0.1s ease,
+		box-shadow 0.1s ease;
+}
+
+.box-container > .box:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 8px rgba(0, 0, 0, 0.7);
+}
+
+.box-container > .box:active {
+	transform: translateY(1px);
+	box-shadow: 0 4px 3px rgba(0, 0, 0, 0.7);
+}
+
+.box.x {
+	color: var(--color-x);
+}
+
+.box.o {
+	color: var(--color-o);
+}
+
+.restart-btn {
+	margin: 16px 0 24px;
+	padding: 14px 32px;
+	font-family: var(--font-main);
+	font-size: 0.75rem;
+	color: white;
+	font-weight: 700;
+	background-color: var(--btn-reset);
+	border: none;
+	border-radius: 50px;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	cursor: pointer;
+	transition:
+		opacity 0.2s ease,
+		transform 0.1s ease;
+}
+
+.restart-btn:hover {
+	opacity: 0.85;
+	transform: translateY(-1px);
+}
+
+.restart-btn:active {
+	opacity: 1;
+	transform: translateY(1px);
 }
