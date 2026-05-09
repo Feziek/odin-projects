@@ -44,7 +44,6 @@ const GameController = (() => {
 		} else if (currentPlayer === player2) {
 			currentPlayer = player1;
 		}
-		console.log(`Current player: ${currentPlayer.name}`);
 	};
 
 	const checkWinner = () => {
@@ -61,7 +60,6 @@ const GameController = (() => {
 			) {
 				gameStatus = 'won';
 				playerWinner = currentPlayer;
-				console.log(`The winner is: ${playerWinner.name}`);
 				winningBox = [first, second, third];
 				break;
 			}
@@ -78,9 +76,6 @@ const GameController = (() => {
 		if (move) {
 			checkWinner();
 		} else {
-			console.log('Invalid move. The tile is already taken');
-			console.log(`Please enter your move again ${currentPlayer.name}`);
-			console.log(`Current player: ${currentPlayer.name}`);
 			return;
 		}
 
@@ -95,7 +90,6 @@ const GameController = (() => {
 		gameStatus = 'active';
 		playerWinner = undefined;
 		winningBox = undefined;
-		console.log('The game has been reset.');
 	};
 
 	const getCurrentPlayer = () => currentPlayer;
