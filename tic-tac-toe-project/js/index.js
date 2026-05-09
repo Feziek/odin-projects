@@ -121,6 +121,7 @@ const DisplayController = (() => {
 	const renderBoard = () => {
 		const board = GameBoard.getBoard();
 		boxes.forEach((box, index) => {
+			box.className = 'box';
 			const winningBox = GameController.getWinningBox();
 			box.textContent = board[index] ?? '';
 			if (box.textContent === 'X') {
