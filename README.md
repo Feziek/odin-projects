@@ -20,6 +20,14 @@ All projects are built with **HTML**, **CSS**, and **JavaScript** (no frameworks
 
 ---
 
+## Live Demos
+
+| Project | Live Demo |
+|---------|-----------|
+| Tic Tac Toe | [Play](https://tic-tac-toe-feziek.netlify.app/) |
+
+---
+
 ## Tech Stack
 
 - **HTML5** — semantic structure
