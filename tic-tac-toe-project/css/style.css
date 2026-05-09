@@ -125,6 +125,14 @@ main {
 	color: var(--color-o);
 }
 
+.x-box-win {
+	animation: pulse-x 0.8s ease-in-out infinite alternate;
+}
+
+.o-box-win {
+	animation: pulse-o 0.8s ease-in-out infinite alternate;
+}
+
 .box-container > .box:hover {
 	transform: translateY(-2px);
 	box-shadow: 0 10px 8px rgba(0, 0, 0, 0.7);
@@ -169,4 +177,14 @@ main {
 .restart-btn:active {
 	opacity: 1;
 	transform: translateY(1px);
+}
+
+@keyframes pulse-x {
+    from { box-shadow: 0 0 8px 2px #00c896; }
+    to   { box-shadow: 0 0 20px 6px #00c896; }
+}
+
+@keyframes pulse-o {
+    from { box-shadow: 0 0 8px 2px #f5a623; }
+    to   { box-shadow: 0 0 20px 6px #f5a623; }
 }
