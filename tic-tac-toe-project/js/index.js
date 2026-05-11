@@ -21,8 +21,19 @@ const GameBoard = (() => {
 })();
 
 const GameController = (() => {
-	const player1 = createPlayer('Player 1', 'X');
-	const player2 = createPlayer('Player 2', 'O');
+	let player1;
+	let player2;
+	let playerWinner;
+	let currentPlayer;
+	let gameStatus = 'active';
+	let winningBox;
+
+	const createPlayers = (name1, name2) => {
+		player1 = createPlayer(name1, 'X');
+		player2 = createPlayer(name2, 'O');
+		currentPlayer = player1;
+	};
+
 	const winningCombinations = [
 		[0, 1, 2],
 		[3, 4, 5],
@@ -33,10 +44,6 @@ const GameController = (() => {
 		[0, 4, 8],
 		[2, 4, 6]
 	];
-	let playerWinner;
-	let currentPlayer = player1;
-	let gameStatus = 'active';
-	let winningBox;
 
 	const switchPlayer = () => {
 		if (currentPlayer === player1) {
@@ -98,6 +105,7 @@ const GameController = (() => {
 	const getWinningBox = () => winningBox;
 
 	return {
+		createPlayers,
 		getCurrentPlayer,
 		getPlayerWinner,
 		getGameStatus,
@@ -110,7 +118,10 @@ const GameController = (() => {
 const DisplayController = (() => {
 	const boxes = Array.from(document.querySelectorAll('.box'));
 	const displayTurn = document.querySelector('.turn');
+	const startBtn = document.querySelector('.start-btn');
 	const restartBtn = document.querySelector('.restart-btn');
+	const form = document.querySelector('form');
+	const mainUi = document.querySelector('.wrapper');
 
 	const renderBoard = () => {
 		const board = GameBoard.getBoard();
@@ -159,12 +170,24 @@ const DisplayController = (() => {
 	};
 
 	const initializeGame = () => {
-		boxes.forEach(box => {
-			box.addEventListener('click', () => {
-				const index = Number(box.dataset.index);
-				GameController.playRound(index);
-				renderBoard();
-				updateStatus();
+		startBtn.addEventListener('click', () => {
+			const inputPlayer1 = document
+				.querySelector('.player1-input')
+				.value.trim();
+			const inputPlayer2 = document
+				.querySelector('.player2-input')
+				.value.trim();
+			GameController.createPlayers(inputPlayer1, inputPlayer2);
+			form.classList.add('none');
+			mainUi.classList.remove('none');
+			updateStatus();
+			boxes.forEach(box => {
+				box.addEventListener('click', () => {
+					const index = Number(box.dataset.index);
+					GameController.playRound(index);
+					renderBoard();
+					updateStatus();
+				});
 			});
 		});
 		restartBtn.addEventListener('click', () => {
