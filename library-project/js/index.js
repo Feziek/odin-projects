@@ -7,11 +7,13 @@ const header = document.querySelector('header');
 
 const library = [];
 
-function Book(title, author, pages) {
-	this.title = title;
-	this.author = author;
-	this.id = crypto.randomUUID().slice(0, 8);
-	this.pages = pages;
+class Book {
+	constructor(title, author, pages) {
+		this.title = title;
+		this.author = author;
+		this.id = crypto.randomUUID().slice(0, 8);
+		this.pages = pages;
+	}
 }
 
 function addBookToLibrary(title, author, pages) {
@@ -62,7 +64,7 @@ function closeModal() {
 	modalContainer.classList.remove('open');
 	libraryContainer.style.filter = 'blur(0px)';
 	header.style.filter = 'blur(0px)';
-	modal.reset()
+	modal.reset();
 }
 
 function submitBookInfo(e) {
