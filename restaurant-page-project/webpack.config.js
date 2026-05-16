@@ -3,15 +3,15 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
 	mode: 'development',
-	entry: './src/js/index.js',
+	entry: './src/index.js',
 	output: {
 		filename: 'bundle.js',
 		path: path.resolve(import.meta.dirname, 'dist'),
 		clean: true
 	},
-	devtool: "eval-source-map",
+	devtool: 'eval-source-map',
 	devServer: {
-	  watchFiles: ["./src/index.html"]
+		watchFiles: ['./src/template.html']
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
@@ -19,6 +19,6 @@ export default {
 		})
 	],
 	module: {
-	  rules: [{ test: /\.css$/i, use: ['style-loader', 'css-loader'] }],
+		rules: [{ test: /\.css$/i, use: ['style-loader', 'css-loader'] }]
 	}
 };
