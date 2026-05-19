@@ -5,8 +5,71 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<title>Restaurant</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400&display=swap"
+			rel="stylesheet" />
 	</head>
 	<body>
-		<h1>Hello from Webpack!</h1>
+		<header>
+			<h1>Sunday Table</h1>
+			<nav>
+				<button data-page="home" class="active">Home</button>
+				<button data-page="menu">Menu</button>
+				<button data-page="about">About</button>
+			</nav>
+		</header>
+		<div id="content"></div>
+		<footer>
+			<div class="footer-grid">
+				<div class="footer-brand">
+					<h3>Sunday Table</h3>
+					<p>
+						A place where simplicity meets elegant taste. Every dish tells a
+						story, every visit feels like home.
+					</p>
+					<p class="address">
+						<span>📍 123 Elmwood Avenue</span>
+						<span>New York, NY 10001</span>
+						<span>📞 (212) 555-0192</span>
+					</p>
+				</div>
+
+				<div class="footer-col">
+					<h4>Navigate</h4>
+					<ul>
+						<li><button>Home</button></li>
+						<li><button>Menu</button></li>
+						<li><button>About Us</button></li>
+					</ul>
+				</div>
+
+				<div class="footer-col">
+					<h4>Hours</h4>
+					<div class="hours-row">
+						<span>Mon – Thu</span>
+						<span>11AM – 9PM</span>
+					</div>
+					<div class="hours-row">
+						<span>Fri – Sat</span>
+						<span>9AM – 9PM</span>
+					</div>
+					<div class="hours-row">
+						<span>Sunday</span>
+						<span>11AM – 8PM</span>
+					</div>
+				</div>
+			</div>
+
+			<hr class="footer-divider" />
+
+			<div class="footer-bottom">
+				<p>© 2026 Sunday Table. All rights reserved.</p>
+				<div>
+					<a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+					<a href="#">Terms</a>
+				</div>
+			</div>
+		</footer>
+		<script src="index.js" type="module"></script>
 	</body>
 </html>
