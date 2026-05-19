@@ -1,0 +1,140 @@
+.hero-section {
+	height: 100dvh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 24px;
+	background: var(--hero-gradient);
+}
+
+.hero-section > h2 {
+	font-size: 3.5rem;
+	width: 450px;
+	text-align: center;
+	font-family: 'Playfair Display', serif;
+	font-weight: 700;
+}
+
+.hero-section > button {
+	padding: 8px 24px;
+	font-size: 1.125rem;
+	font-family: 'Lato', serif;
+	font-weight: 400;
+	background: var(--button-bg);
+	color: var(--white);
+	border: 1px solid var(--white);
+	border-radius: 6px;
+}
+
+.hero-section > button:hover {
+	background: var(--button-hover);
+}
+
+.opening-section {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 30px;
+	background: #ffffff;
+	color: var(--text-dark);
+}
+
+.opening-section::before {
+	content: '';
+	position: absolute;
+	top: -60px;
+	left: -60px;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background: rgba(168, 200, 232, 0.3)
+}
+
+.opening-section::after {
+	content: '';
+	position: absolute;
+	bottom: -80px;
+	right: -50px;
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+	background: rgba(91, 141, 184, 0.15);
+}
+
+.opening-section > h2 {
+	font-family: 'Playfair Display', serif;
+	font-size: 2.2rem;
+	color: var(--text-dark);
+	margin-bottom: 20px;
+}
+
+opening-section > .label {
+	font-family: 'Lato', sans-serif;
+	font-size: 0.75rem;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+	color: var(--text-dark);
+	opacity: 0.7;
+	margin-bottom: 8px;
+}
+
+.hours-list {
+	width: 350px;
+	border-collapse: collapse;
+}
+
+.divider {
+	width: 150px;
+	height: 2px;
+	background: #5b8db8;
+	margin: 0 auto 20px;
+}
+
+.hours-list tr {
+	border-bottom: 1px solid rgba(91, 141, 184, 0.4);
+}
+
+.hours-list tr:last-child {
+	border: none;
+}
+
+.hours-list td {
+	padding: 12px 0;
+	font-family: 'Lato', sans-serif;
+	font-size: 0.95rem;
+}
+
+.hours-list td:first-child {
+	text-align: left;
+	font-weight: 400;
+}
+
+.hours-list td:last-child {
+	text-align: right;
+	font-weight: 300;
+}
+
+.highlight td {
+	color: #2c5f8a;
+	font-weight: 700;
+}
+
+.closed td {
+	opacity: 0.4;
+}
+
+.badge {
+	display: inline-block;
+	background: var(--accent);
+	color: white;
+	font-size: 0.6rem;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	padding: 3px 10px;
+	border-radius: 20px;
+	margin-left: 8px;
+	vertical-align: middle;
+}
