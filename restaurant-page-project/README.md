@@ -48,7 +48,7 @@ restaurant-page/
 Clone the repository and navigate to the project folder.
 
 ```bash
-git clone https://github.com/yourusername/your-repo.git
+git clone https://github.com/Feziek/odin-projects.git
 cd restaurant-page
 ```
 
