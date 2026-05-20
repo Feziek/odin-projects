@@ -16,7 +16,10 @@
 	--button-bg: #5b8db8;
 	--button-hover: #4a7aa3;
 	--white: #ffffff;
+  --navbar-border: #d0e4f5;
+  --highlight: #2c5f8a;
 }
+
 
 html,
 body {
@@ -116,14 +119,14 @@ footer::after {
 .footer-brand h3 {
 	font-family: 'Playfair Display', serif;
 	font-size: 1.8rem;
-	color: #ffffff;
+	color: var(--white);
 	margin-bottom: 14px;
 }
 
 .footer-brand p {
 	font-size: 0.9rem;
 	line-height: 1.8;
-	color: #a8c8e8;
+	color: var(--primary);
 	font-weight: 300;
 	max-width: 260px;
 	margin-bottom: 24px;
@@ -134,7 +137,7 @@ footer::after {
 	font-size: 0.7rem;
 	letter-spacing: 3px;
 	text-transform: uppercase;
-	color: #6a9ec5;
+	color: var(--primary-dark);
 	margin-bottom: 20px;
 }
 
@@ -148,7 +151,7 @@ footer::after {
 
 .footer-col ul li button {
 	border: none;
-	color: #a8c8e8;
+	color: var(--primary);
 	background-color: transparent;
 	text-decoration: none;
 	font-size: 0.9rem;
@@ -156,7 +159,7 @@ footer::after {
 }
 
 .footer-col ul li button:hover {
-	color: #ffffff;
+	color: var(--white);
 }
 
 .hours-row {
@@ -165,11 +168,11 @@ footer::after {
 	margin-bottom: 10px;
 	font-size: 0.85rem;
 	font-weight: 300;
-	color: #a8c8e8;
+	color: var(--primary);
 }
 
 .hours-row span:last-child {
-	color: #d6eaf8;
+	color: var(--primary-light);
 }
 
 .footer-divider {
@@ -188,23 +191,23 @@ footer::after {
 
 .footer-bottom p {
 	font-size: 0.75rem;
-	color: #6a9ec5;
+	color: var(--primary-dark);
 	font-weight: 300;
 }
 
 .footer-bottom a {
-	color: #6a9ec5;
+	color: var(--primary-dark);
 	text-decoration: none;
 	font-size: 0.75rem;
 }
 
 .footer-bottom a:hover {
-	color: #a8c8e8;
+	color: var(--primary);
 }
 
 .address {
 	font-size: 0.8rem;
-	color: #6a9ec5;
+	color: var(--primary-dark);
 	font-weight: 300;
 	line-height: 1.7;
 	margin-top: 8px;
