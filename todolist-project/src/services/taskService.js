@@ -11,7 +11,7 @@ function createTask(title, desc, dueDate, priority) {
 }
 
 function addTask(title, desc, dueDate, priority) {
-	data = getTodoData();
+	const data = getTodoData();
 	const task = createTask(title, desc, dueDate, priority);
 	data.tasks.push(task);
 	localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
