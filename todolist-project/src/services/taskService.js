@@ -16,3 +16,9 @@ function addTask(title, desc, dueDate, priority) {
 	data.tasks.push(task);
 	localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
+
+function deleteTask(id) {
+	const data = getTodoData();
+	data.tasks = data.tasks.filter(task => task.id !== id);
+	localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
