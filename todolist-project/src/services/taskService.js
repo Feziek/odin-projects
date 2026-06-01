@@ -22,13 +22,15 @@ function deleteTask(id) {
 	localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
-function updateTask(id) {
+function updateTask(id, title, dueDate, priority) {
 	const data = getTodoData();
 	data.tasks = data.tasks.map(task => {
 		if (task.id === id) {
-			task.title = document.getElementById('title').value;
-			task.dueDate = document.getElementById('date').value;
-			task.priority = document.getElementById('prio').value;
+			task.title = title;
+			task.dueDate = dueDate;
+			task.priority = priority;
+			
+			return task;
 		}
 	});
 	localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
