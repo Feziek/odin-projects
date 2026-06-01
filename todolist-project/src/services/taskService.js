@@ -24,15 +24,19 @@ function deleteTask(id) {
 
 function updateTask(id, title, dueDate, priority) {
 	const data = getTodoData();
-	data.tasks = data.tasks.map(task => {
+	const updatedData = data.tasks.map(task => {
 		if (task.id === id) {
-			task.title = title;
-			task.dueDate = dueDate;
-			task.priority = priority;
-			
-			return task;
+			return {
+				...task,
+				title,
+				dueDate,
+				priority
+			};
 		}
+		return task;
 	});
+	data.tasks = updatedData;
+
 	localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
