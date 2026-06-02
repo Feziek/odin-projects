@@ -5,13 +5,28 @@ function taskCard(taskObj, onDelete, onEdit) {
 	const updateBtn = document.createElement('button');
 
 	card.innerHTML = `
-		  <h2>${title}</h2>
+	    <label>
+	      <input type="checkbox" class="checkbox">
+	      <span class="task-title">${title}</span>
+	    </label>
 		  <p>${dueDate}</p>
 		  <p>${priority}</p>
 		`;
 
+	const checkBox = card.querySelector('.checkbox');
+
 	deleteBtn.textContent = 'Delete Task';
 	updateBtn.textContent = 'Update Task';
+
+	checkBox.addEventListener('change', e => {
+		const taskTitle = e.target.closest('label').querySelector('.task-title');
+		
+		if (e.target.checked) {
+			taskTitle.style.textDecoration = 'line-through';
+		} else {
+			taskTitle.style.textDecoration = 'none';
+		}
+	});
 
 	deleteBtn.addEventListener('click', () => {
 		onDelete(id);
