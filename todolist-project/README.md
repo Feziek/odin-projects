@@ -1,6 +1,6 @@
 # Odin Todo List 
 
-> 🚧 Work in Progress
+> ⚠️ Development Abandoned
 
 A vanilla JavaScript single-page application for managing tasks and projects, built with a clean service-component-page architecture.
 
@@ -21,14 +21,15 @@ A vanilla JavaScript single-page application for managing tasks and projects, bu
 - [x] Routing between pages
 - [x] Add tasks
 - [x] Delete tasks
-- [ ] Edit tasks
+- [x] Edit tasks
 - [ ] Projects
-- [ ] Assign tasks to projects
-- [ ] Mark tasks as complete
+- [] Assign tasks to projects
+- [x] Mark tasks as complete
 
-## Status
+## Reason for Abandonment
 
-Currently in active development. Core task CRUD and client-side routing are functional. Projects section coming soon.
+Development halted to continue with The Odin Project curriculum. Core task CRUD and client-side routing were implemented. Projects page, home page, and UI styling were not completed.
+
 
 ## License
 
