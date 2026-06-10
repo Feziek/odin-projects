@@ -4,6 +4,9 @@ const libraryContainer = document.querySelector('.book-section');
 const modalContainer = document.querySelector('.modal');
 const modal = document.querySelector('form');
 const header = document.querySelector('header');
+const titleInput = document.querySelector('#title');
+const authorInput = document.querySelector('#author');
+const pagesInput = document.querySelector('#pages');
 
 const library = [];
 
@@ -67,8 +70,37 @@ function closeModal() {
 	modal.reset();
 }
 
+function showError(field) {
+	const errorMsg = document.querySelector(`#${field} + span`);
+	const input = document.querySelector(`#${field}`);
+	const header = document.querySelector(`label[for="${field}"]`);
+	if (input.validity.valueMissing) {
+		errorMsg.textContent = `This field is required`;
+		input.classList.add('invalid');
+		header.classList.add('invalid');
+	} else {
+		errorMsg.textContent = '';
+		input.classList.remove('invalid');
+		header.classList.remove('invalid');
+	}
+}
+
+titleInput.addEventListener('blur', () => {
+	showError('title');
+});
+authorInput.addEventListener('blur', () => {
+	showError('author');
+});
+pagesInput.addEventListener('blur', () => {
+	showError('pages');
+});
+
 function submitBookInfo(e) {
 	e.preventDefault();
+	if (!modal.checkValidity()) {
+		console.log('i have field that is empty');
+		return;
+	}
 
 	const title = document.getElementById('title').value.trim();
 	const author = document.getElementById('author').value.trim();
@@ -76,7 +108,6 @@ function submitBookInfo(e) {
 
 	addBookToLibrary(title, author, pages);
 	closeModal();
-	modal.reset();
 }
 
 addBookBtn.addEventListener('click', openModal);
