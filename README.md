@@ -14,7 +14,7 @@ All projects are built with **HTML**, **CSS**, and **JavaScript** (no frameworks
 | [`etch-a-sketch-project`](./etch-a-sketch-project) | An interactive browser-based drawing grid using DOM manipulation |
 | [`form-project`](./form-project) | A styled sign-up form with custom CSS and form validation |
 | [`landing-page-project`](./landing-page-project) | A fully responsive landing page built with Flexbox |
-| [`library-project`](./library-project) | A personal book library app using JavaScript objects and DOM manipulation |
+| [`library-project`](./library-project) | A personal book library app using JavaScript objects and DOM manipulation with form validation using Constraint validation Api|
 | [`rock-paper-scissor-project`](./rock-paper-scissor-project) | A playable Rock Paper Scissors game with a browser UI |
 | [`tic-tac-toe-project`](./tic-tac-toe-project) | A two-player Tic Tac Toe game using modular JavaScript |
 
