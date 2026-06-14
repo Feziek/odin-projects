@@ -1,0 +1,41 @@
+{
+	"name": "webpack-template",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "webpack --config webpack.prod.js",
+		"dev": "webpack serve --config webpack.dev.js",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
+		"format": "prettier . --write",
+		"check": "npm run format:check && npm run lint",
+		"prepare": "husky"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "module",
+	"devDependencies": {
+		"@eslint/js": "^10.0.1",
+		"css-loader": "^7.1.4",
+		"eslint": "^10.4.1",
+		"eslint-config-prettier": "^10.1.8",
+		"globals": "^17.6.0",
+		"html-webpack-plugin": "^5.6.7",
+		"husky": "^9.1.7",
+		"lint-staged": "^17.0.7",
+		"prettier": "3.8.3",
+		"style-loader": "^4.0.0",
+		"webpack": "^5.107.1",
+		"webpack-cli": "^7.0.2",
+		"webpack-dev-server": "^5.2.4",
+		"webpack-merge": "^6.0.1"
+	},
+	"lint-staged": {
+		"**/*.js": [
+			"eslint --fix",
+			"prettier --write"
+		]
+	}
+}
