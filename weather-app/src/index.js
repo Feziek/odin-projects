@@ -1,5 +1,10 @@
 import './styles/global.css';
+import homePage from './pages/home.js';
 
-const unusedVar = 1;
+function initializeApp(page) {
+	const app = document.querySelector('#root');
 
-console.log('Hello from Webpack!');
+	app.appendChild(page());
+}
+
+initializeApp(homePage);
