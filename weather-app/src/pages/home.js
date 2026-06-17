@@ -82,6 +82,7 @@ function showSpinner() {
 	spinnerContainer.classList.add('loading');
 	spinnerContainer.innerHTML = `
 		<div class="spinner"></div>
+		Checking the skies...
 	`;
 
 	return spinnerContainer;
