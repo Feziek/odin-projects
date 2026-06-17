@@ -1,0 +1,12 @@
+:root {
+	--bg-start: #0d1b2a;
+	--bg-end: #1b3a6b;
+	--card-bg: rgba(255, 255, 255, 0.07);
+	--card-border: rgba(255, 255, 255, 0.14);
+	--card-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+	--text-primary: #e8f4fd;
+	--text-muted: #94b8cc;
+	--accent-sky: #4fc3f7;
+	--accent-warm: #ffb347;
+	--radius: 16px;
+}
