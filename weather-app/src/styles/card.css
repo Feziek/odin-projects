@@ -1,0 +1,109 @@
+.cards-grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 0.85rem;
+}
+
+.cards-grid .weather-card:first-child {
+	grid-column: 1 / -1;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	column-gap: 2rem;
+	row-gap: 0.5rem;
+	padding: 2rem 2.25rem;
+	border-color: rgba(79, 195, 247, 0.28);
+}
+
+@media (max-width: 700px) {
+	.cards-grid {
+		grid-template-columns: 1fr;
+	}
+	.cards-grid .weather-card:first-child {
+		grid-column: 1;
+	}
+}
+
+.weather-card {
+	background: var(--card-bg);
+	border: 1px solid var(--card-border);
+	border-radius: var(--radius);
+	padding: 1.4rem 1.25rem;
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+	box-shadow: var(--card-shadow);
+	transition:
+		transform 0.2s,
+		box-shadow 0.2s;
+}
+
+.weather-card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+}
+
+.card-date {
+	font-size: 0.72rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--accent-sky);
+	margin-bottom: 0.6rem;
+}
+
+.card-condition {
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--text-primary);
+	margin-bottom: 0.25rem;
+}
+
+.card-desc {
+	font-size: 0.78rem;
+	color: var(--text-muted);
+	line-height: 1.45;
+	margin-bottom: 1rem;
+}
+
+.card-temp {
+	font-family: 'Outfit', sans-serif;
+	font-size: 2.6rem;
+	font-weight: 700;
+	color: var(--accent-warm);
+	line-height: 1;
+	margin-bottom: 0.2rem;
+}
+
+.card-feels {
+	font-size: 0.78rem;
+	color: var(--text-muted);
+	margin-bottom: 0.9rem;
+}
+
+.card-range {
+	font-size: 0.85rem;
+	margin-bottom: 0.75rem;
+}
+
+.card-range .high {
+	color: var(--accent-warm);
+	font-weight: 600;
+}
+.card-range .low {
+	color: var(--accent-sky);
+	font-weight: 600;
+}
+.card-range .sep {
+	color: var(--text-muted);
+	margin: 0 0.3rem;
+}
+
+.card-stat {
+	font-size: 0.8rem;
+	color: var(--text-muted);
+	margin-bottom: 0.3rem;
+}
+
+.card-stat strong {
+	color: var(--text-primary);
+	font-weight: 500;
+}
