@@ -1,79 +1,124 @@
-# webpack-template
+# Raindar
 
-My personal Webpack 5 starter template for vanilla JS projects. Uses ESM config files and a three-way config split.
+A clean, minimal weather app that gives you today's conditions and a 5-day forecast for any city in the world.
 
-## What's Included
+Built with vanilla JavaScript, Webpack 5, and the Visual Crossing Weather API.
 
-- **Webpack 5** — split config via `webpack-merge` (`common`, `dev`, `prod`)
-- **HtmlWebpackPlugin** — generates HTML from `src/template.html`
-- **css-loader + style-loader** — import CSS directly in JS
-- **Asset handling** — images (png, svg, jpg, jpeg, gif) and fonts (woff, woff2, eot, ttf, otf) handled as `asset/resource`
-- **ESLint** (`@eslint/js` + `eslint-config-prettier`) — JS linting
-- **Prettier** — code formatting
-- **Husky + lint-staged** — pre-commit hook runs ESLint fix + Prettier on staged `.js` files
+**[Live Demo →](https://raindar.netlify.app)**
 
-## Project Structure
+---
+
+## Features
+
+- Search weather by city name
+- Today's weather card — temperature, feels like, high/low, humidity, wind speed, and conditions
+- 5-day forecast with the same detail per day
+- Loading spinner while fetching
+- Error feedback for invalid cities or failed requests
+- Metric units (°C, km/h)
+
+---
+
+## Tech Stack
+
+- **Vanilla JavaScript** (ES6 modules)
+- **Webpack 5** — module bundling with separate dev/prod configs
+- **Visual Crossing Weather API** — weather data
+- **CSS** — custom sky blue glassmorphism theme
+- **Netlify** — deployment
+
+---
+
+## Architecture
+
+Follows a **service → component → page** pattern:
 
 ```
-template/
-├── .husky/               # Pre-commit hooks
-├── src/
-│   ├── index.js          # Webpack entry point
-│   └── template.html     # HtmlWebpackPlugin template
-├── dist/                 # Build output (git-ignored)
-├── .gitignore
-├── .prettierignore
-├── .prettierrc
-├── eslint.config.js
-├── package.json
-├── webpack.common.js     # Entry, output, plugins, loaders
-├── webpack.dev.js        # eval-source-map, dev server
-└── webpack.prod.js       # Production mode (minification)
+src/
+├── services/
+│   └── fetchService.js   # API calls, data trimming, error propagation
+├── components/
+│   └── card.js           # Renders a single day's weather card
+├── pages/
+│   └── home.js           # Orchestrates UI, spinner, error state, and card rendering
+└── styles/
+    └── home.css
 ```
+
+- **Services** own everything API-related — fetching, trimming the response, and throwing errors
+- **Components** are pure DOM builders — they receive data and return elements
+- **Pages** orchestrate the flow — they talk to services and components, and own loading/error states
+
+---
 
 ## Getting Started
 
-### Use this template
+### Prerequisites
 
-Click **"Use this template"** on GitHub, then:
+- Node.js
+- npm
+
+### Installation
 
 ```bash
-git clone <your-new-repo>
-cd <your-new-repo>
+# Clone the monorepo
+git clone https://github.com/Feziek/odin-projects.git
+cd odin-projects/weather-app
+
+# Install dependencies
 npm install
-```
 
-### Dev server
-
-```bash
+# Start dev server
 npm run dev
 ```
 
-Watches `src/template.html` and live-reloads on changes.
-
-### Production build
+### Build for production
 
 ```bash
 npm run build
 ```
 
-Output goes to `dist/bundle.js`. The `dist/` folder is cleaned before each build.
+---
 
-## Scripts
+## API
 
-| Script | What it does |
-|---|---|
-| `npm run dev` | Webpack dev server with source maps |
-| `npm run build` | Production build to `dist/` |
-| `npm run lint` | Run ESLint |
-| `npm run lint:fix` | Run ESLint with auto-fix |
-| `npm run format` | Run Prettier on everything |
-| `npm run check` | Format check + lint |
+Weather data is provided by [Visual Crossing](https://www.visualcrossing.com/).
 
-## Notes
+The app fetches a 5-day forecast using the Timeline API:
 
-- Entry point is `src/index.js` — update `webpack.common.js` if renamed
-- HTML template is `src/template.html` — dev server watches this file specifically
-- Config files use ESM (`type: "module"` in `package.json`) — keep `import`/`export` syntax
-- Husky runs lint-staged on commit; bypass with `--no-verify` if needed (sparingly)
-- No Babel — add it to `webpack.common.js` if a project needs transpilation
+```
+GET /VisualCrossingWebServices/rest/services/timeline/{city}
+    ?unitGroup=metric
+    &key={API_KEY}
+    &contentType=json
+```
+
+The following fields are extracted from the response:
+
+| Field       | Source                                |
+| ----------- | ------------------------------------- |
+| City        | `address`                             |
+| Date        | `days[n].datetime`                    |
+| Condition   | `days[n].conditions`                  |
+| Description | `days[n].description`                 |
+| Temperature | `days[n].temp`                        |
+| Feels like  | `days[n].feelslike`                   |
+| High / Low  | `days[n].tempmax` / `days[n].tempmin` |
+| Humidity    | `days[n].humidity`                    |
+| Wind speed  | `days[n].windspeed`                   |
+
+---
+
+## Deployment
+
+Deployed via Netlify from the `odin-projects` monorepo.
+
+- **Base directory:** `weather-app`
+- **Build command:** `npm run build`
+- **Publish directory:** `weather-app/dist`
+
+---
+
+## Part of
+
+[odin-projects](https://github.com/Feziek/odin-projects) — a monorepo of projects built through [The Odin Project](https://www.theodinproject.com/) curriculum.
