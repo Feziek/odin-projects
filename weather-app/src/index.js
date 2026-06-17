@@ -1,3 +1,4 @@
+import './styles/variables.css';
 import './styles/global.css';
 import homePage from './pages/home.js';
 
