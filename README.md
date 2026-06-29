@@ -15,6 +15,7 @@ All projects are built with **HTML**, **CSS**, and **JavaScript** (no frameworks
 | [`form-project`](./form-project)                             | A styled sign-up form with custom CSS and form validation                                                                      |
 | [`landing-page-project`](./landing-page-project)             | A fully responsive landing page built with Flexbox                                                                             |
 | [`library-project`](./library-project)                       | A personal book library app using JavaScript objects and DOM manipulation with form validation using Constraint Validation API |
+| [`restaurant-page-project`](./restaurant-page-project)                       | A clean, elegant restaurant website built with vanilla JavaScript and Webpack. |
 | [`rock-paper-scissor-project`](./rock-paper-scissor-project) | A playable Rock Paper Scissors game with a browser UI                                                                          |
 | [`tic-tac-toe-project`](./tic-tac-toe-project)               | A two-player Tic Tac Toe game using modular JavaScript                                                                         |
 | [`todolist-project`](./todolist-project)                     | ⚠️ Abandoned — A todo list app with dynamic task management (incomplete)                                                       |
@@ -28,6 +29,7 @@ All projects are built with **HTML**, **CSS**, and **JavaScript** (no frameworks
 | --------------------- | ----------------------------------------------- |
 | Tic Tac Toe           | [Play](https://tic-tac-toe-feziek.netlify.app/) |
 | Raindar (Weather App) | [View](https://raindar.netlify.app/)            |
+| Sunday Table (Restaurant Page) | [View](https://sunday-table.netlify.app/)            |
 
 ---
 
