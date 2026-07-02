@@ -38,3 +38,5 @@ function mergeSort(arr) {
 
   return result;
 }
+
+export default mergeSort;
