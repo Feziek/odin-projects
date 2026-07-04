@@ -114,11 +114,3 @@ class LinkedList {
     return string;
   }
 }
-
-const list = new LinkedList();
-list.append("a");
-list.append("b");
-list.append("c");
-
-console.log(list.at(-1));
-console.log(list.contains("z"));
