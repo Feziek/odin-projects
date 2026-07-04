@@ -4,3 +4,7 @@ class Node {
     this.nextNode = null;
   }
 }
+
+class LinkedList {
+  #head = null;
+}
