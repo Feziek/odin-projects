@@ -36,10 +36,10 @@ class LinkedList {
   size() {
     let current = this.#head;
     let count = 0;
-    while (current.nextNode || current.nextNode === null) {
+    while (true) {
+      if (current === null) break;
       count += 1;
       current = current.nextNode;
-      if (current === null) break;
     }
     return count;
   }
@@ -50,6 +50,7 @@ class LinkedList {
   }
 
   tail() {
+    if (this.#head === null) return undefined;
     let current = this.#head;
     while (current.nextNode !== null) {
       current = current.nextNode;
@@ -58,32 +59,37 @@ class LinkedList {
   }
 
   at(index) {
+    if (index < 0) return undefined;
     let current = this.#head;
     let position = 0;
     while (position < index) {
       current = current.nextNode;
-      if (current.nextNode === null) return undefined;
+      if (!current) return undefined;
       position++;
     }
+
     return current.value;
   }
 
   pop() {
     if (this.#head === null) return undefined;
+    const value = this.#head.value;
     this.#head = this.#head.nextNode;
-    return this.#head;
+    return value;
   }
 
   contains(value) {
+    if (this.#head === null) return false;
     let current = this.#head;
     while (current.nextNode !== null) {
       if (current.value === value) return true;
       current = current.nextNode;
     }
-    return false;
+    return current.value === value;
   }
 
   findIndex(value) {
+    if (this.#head === null) return -1;
     let current = this.#head;
     let index = 0;
     while (current.value !== value && current.nextNode !== null) {
@@ -96,6 +102,7 @@ class LinkedList {
 
   toString() {
     let string = "";
+    if (this.#head === null) return "";
     let current = this.#head;
 
     while (current.nextNode !== null) {
@@ -107,3 +114,11 @@ class LinkedList {
     return string;
   }
 }
+
+const list = new LinkedList();
+list.append("a");
+list.append("b");
+list.append("c");
+
+console.log(list.at(-1));
+console.log(list.contains("z"));
