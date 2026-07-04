@@ -43,4 +43,9 @@ class LinkedList {
     }
     return count;
   }
+
+  head() {
+    if (this.#head === null) return undefined;
+    return this.#head.value;
+  }
 }
