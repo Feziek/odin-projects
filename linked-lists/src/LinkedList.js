@@ -22,7 +22,7 @@ class LinkedList {
     current.nextNode = new Node(value);
   }
 
-  preppend(value) {
+  prepend(value) {
     if (this.#head === null) {
       this.#head = new Node(value);
       return;
@@ -114,3 +114,5 @@ class LinkedList {
     return string;
   }
 }
+
+export default LinkedList;
