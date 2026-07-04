@@ -32,4 +32,15 @@ class LinkedList {
     this.#head = new Node(value);
     this.#head.nextNode = temp;
   }
+
+  size() {
+    let current = this.#head;
+    let count = 0;
+    while (current.nextNode || current.nextNode === null) {
+      count += 1;
+      current = current.nextNode;
+      if (current === null) break;
+    }
+    return count;
+  }
 }
