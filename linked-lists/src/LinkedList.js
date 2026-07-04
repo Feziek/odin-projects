@@ -21,4 +21,15 @@ class LinkedList {
     }
     current.nextNode = new Node(value);
   }
+
+  preppend(value) {
+    if (this.#head === null) {
+      this.#head = new Node(value);
+      return;
+    }
+
+    let temp = this.#head;
+    this.#head = new Node(value);
+    this.#head.nextNode = temp;
+  }
 }
