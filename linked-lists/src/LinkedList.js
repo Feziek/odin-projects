@@ -67,4 +67,10 @@ class LinkedList {
     }
     return current.value;
   }
+
+  pop() {
+    if (this.#head === null) return undefined;
+    this.#head = this.#head.nextNode;
+    return this.#head;
+  }
 }
