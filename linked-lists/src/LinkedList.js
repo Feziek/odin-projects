@@ -82,6 +82,7 @@ class LinkedList {
     }
     return false;
   }
+
   findIndex(value) {
     let current = this.#head;
     let index = 0;
@@ -91,5 +92,18 @@ class LinkedList {
     }
     if (current.value === value) return index;
     return -1;
+  }
+
+  toString() {
+    let string = "";
+    let current = this.#head;
+
+    while (current.nextNode !== null) {
+      string += `( ${current.value} ) -> `;
+      current = current.nextNode;
+    }
+
+    string += `( ${current.value} ) -> null`;
+    return string;
   }
 }
