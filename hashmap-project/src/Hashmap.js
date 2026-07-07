@@ -28,4 +28,15 @@ class HashMap {
 
     list.append({ key, value });
   }
+
+  get(key) {
+    const list = this.#buckets[this.hash(key)];
+
+    if (list.contains(key)) {
+      const listNode = list.find(key);
+      return listNode.value.value;
+    }
+
+    return null;
+  }
 }
