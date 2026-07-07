@@ -82,10 +82,10 @@ class LinkedList {
     if (this.#head === null) return false;
     let current = this.#head;
     while (current.nextNode !== null) {
-      if (current.value === value) return true;
+      if (current.value.key === value) return true;
       current = current.nextNode;
     }
-    return current.value === value;
+    return current.value.key === value;
   }
 
   findIndex(value) {
@@ -106,12 +106,20 @@ class LinkedList {
     let current = this.#head;
 
     while (current.nextNode !== null) {
-      string += `( ${current.value} ) -> `;
+      string += `( ${JSON.stringify(current.value)} ) -> `;
       current = current.nextNode;
     }
 
-    string += `( ${current.value} ) -> null`;
+    string += `( ${JSON.stringify(current.value)} ) -> null`;
     return string;
+  }
+
+  find(value) {
+    let current = this.#head;
+    while (current.value.key !== value) {
+      current = current.nextNode;
+    }
+    return current;
   }
 }
 
