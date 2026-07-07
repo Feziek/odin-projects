@@ -116,9 +116,10 @@ class LinkedList {
 
   find(value) {
     let current = this.#head;
-    while (current.value.key !== value) {
+    while (current.value.key !== value && current.nextNode !== null) {
       current = current.nextNode;
     }
+
     return current;
   }
 }
