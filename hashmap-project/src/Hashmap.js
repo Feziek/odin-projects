@@ -15,5 +15,17 @@ class HashMap {
 
     return hashCode;
   }
-}
 
+  set(key, value) {
+    const bucketIndex = this.hash(key);
+    const list = this.#buckets[bucketIndex];
+
+    if (list.contains(key)) {
+      const listNode = list.find(key);
+      listNode.value.value = value;
+      return;
+    }
+
+    list.append({ key, value });
+  }
+}
