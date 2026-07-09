@@ -115,13 +115,15 @@ class LinkedList {
   }
 
   find(value) {
-    if (this.#head === null) return;
+    if (this.#head === null) return undefined;
     let current = this.#head;
 
-    while (current.value.key !== value && current.nextNode === null) {
+    while (current.value.key !== value && current.nextNode !== null) {
       current = current.nextNode;
     }
-    
+
+    if (current.value.key !== value) return undefined;
+
     return current;
   }
 }
