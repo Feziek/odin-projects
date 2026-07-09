@@ -38,4 +38,9 @@ class HashMap {
 
     return null;
   }
+
+  has(key) {
+    const list = this.#buckets[this.hash(key)];
+    return list.contains(key);
+  }
 }
