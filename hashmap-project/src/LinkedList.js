@@ -149,6 +149,19 @@ class LinkedList {
 
     return result;
   }
+
+  getValues() {
+    const result = [];
+    if (this.#head === null) return [];
+    let current = this.#head;
+
+    while (current !== null) {
+      result.push(current.value.value);
+      current = current.nextNode;
+    }
+
+    return result;
+  }
 }
 
 export default LinkedList;
