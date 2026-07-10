@@ -26,6 +26,16 @@ class HashMap {
     }
 
     list.append({ key, value });
+
+    if (this.length() > this.#loadFactor * this.#capacity) {
+      const oldEntries = this.entries();
+
+      this.#grow();
+
+      oldEntries.forEach((entry) => {
+        this.set(entry[0], entry[1]);
+      });
+    }
   }
 
   get(key) {
@@ -100,5 +110,23 @@ class HashMap {
 
     return result;
   }
+
+  entries() {
+    let result = [];
+    this.#buckets.forEach((bucket) => {
+      result = result.concat(bucket.getPair());
+    });
+
+    return result;
+  }
+
+  #grow() {
+    this.#capacity *= 2;
+    this.#buckets = Array.from(
+      { length: this.#capacity },
+      () => new LinkedList(),
+    );
+  }
 }
 
+export default HashMap;
