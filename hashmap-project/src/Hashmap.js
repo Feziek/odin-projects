@@ -43,4 +43,28 @@ class HashMap {
     const list = this.#buckets[this.hash(key)];
     return list.contains(key);
   }
+
+  remove(key) {
+    const list = this.#buckets[this.hash(key)];
+    const index = list.findIndex(key);
+
+    if (index === 0) {
+      const headNode = list.at(0);
+
+      if (!headNode.nextNode) {
+        list.resetList();
+        return true;
+      }
+
+      headNode.value = headNode.nextNode.value;
+      headNode.nextNode = headNode.nextNode.nextNode;
+      return true;
+    }
+
+    const prevNode = list.at(index - 1);
+    if (!prevNode) return false;
+
+    prevNode.nextNode = prevNode.nextNode.nextNode;
+    return true;
+  }
 }
