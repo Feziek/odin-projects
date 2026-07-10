@@ -82,4 +82,13 @@ class HashMap {
       () => new LinkedList(),
     );
   }
+
+  keys() {
+    let result = [];
+    this.#buckets.forEach((bucket) => {
+      result = result.concat(bucket.getKeys());
+    });
+
+    return result;
+  }
 }
