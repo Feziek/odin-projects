@@ -136,6 +136,19 @@ class LinkedList {
   resetList() {
     this.#head = null;
   }
+
+  getKeys() {
+    const result = [];
+    if (this.#head === null) return [];
+    let current = this.#head;
+
+    while (current !== null) {
+      result.push(current.value.key);
+      current = current.nextNode;
+    }
+
+    return result;
+  }
 }
 
 export default LinkedList;
