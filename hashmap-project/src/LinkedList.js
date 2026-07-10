@@ -49,6 +49,11 @@ class LinkedList {
     return this.#head.value;
   }
 
+  isHead(value) {
+    if (this.#head.value.key === value) return true;
+    return false;
+  }
+
   tail() {
     if (this.#head === null) return undefined;
     let current = this.#head;
@@ -59,6 +64,7 @@ class LinkedList {
   }
 
   at(index) {
+    if (index === 0) return this.#head;
     if (index < 0) return undefined;
     let current = this.#head;
     let position = 0;
@@ -89,6 +95,7 @@ class LinkedList {
   }
 
   findIndex(value) {
+    if (this.isHead(value)) return 0;
     if (this.#head === null) return -1;
     let current = this.#head;
     let index = 0;
