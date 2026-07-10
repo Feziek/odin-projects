@@ -68,7 +68,7 @@ class LinkedList {
       position++;
     }
 
-    return current.value;
+    return current;
   }
 
   pop() {
@@ -92,11 +92,11 @@ class LinkedList {
     if (this.#head === null) return -1;
     let current = this.#head;
     let index = 0;
-    while (current.value !== value && current.nextNode !== null) {
+    while (current.value.key !== value && current.nextNode !== null) {
       current = current.nextNode;
       index++;
     }
-    if (current.value === value) return index;
+    if (current.value.key === value) return index;
     return -1;
   }
 
