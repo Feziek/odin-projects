@@ -133,6 +133,10 @@ class LinkedList {
 
     return current;
   }
+
+  resetList() {
+    this.#head = null;
+  }
 }
 
 export default LinkedList;
