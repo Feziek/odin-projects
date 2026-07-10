@@ -67,4 +67,13 @@ class HashMap {
     prevNode.nextNode = prevNode.nextNode.nextNode;
     return true;
   }
+
+  length() {
+    let count = 0;
+    this.#buckets.forEach((bucket) => {
+      count += bucket.size();
+    });
+    return count;
+  }
 }
+
