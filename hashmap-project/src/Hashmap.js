@@ -91,4 +91,14 @@ class HashMap {
 
     return result;
   }
+
+  values() {
+    let result = [];
+    this.#buckets.forEach((bucket) => {
+      result = result.concat(bucket.getValues());
+    });
+
+    return result;
+  }
 }
+
