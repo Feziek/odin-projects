@@ -162,6 +162,22 @@ class LinkedList {
 
     return result;
   }
+
+  getPair() {
+    const result = [];
+    if (this.#head === null) return [];
+    let current = this.#head;
+
+    while (current !== null) {
+      const temp = [];
+      temp.push(current.value.key);
+      temp.push(current.value.value);
+      result.push(temp);
+      current = current.nextNode;
+    }
+
+    return result;
+  }
 }
 
 export default LinkedList;
