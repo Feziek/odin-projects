@@ -72,6 +72,23 @@ class Tree {
     }
     return current;
   }
+
+  levelOrderForEach(callback, current = this.root) {
+    if (typeof callback !== 'function')
+      throw new TypeError('Parameter must be a function!');
+    if (!current) return;
+
+    const queue = [];
+    let i = 0;
+    queue.push(current);
+
+    while (queue.length > i) {
+      const currentItem = queue[i++];
+      callback(currentItem.data);
+      if (currentItem.left) queue.push(currentItem.left);
+      if (currentItem.right) queue.push(currentItem.right);
+    }
+  }
 }
 
 export default Tree;
