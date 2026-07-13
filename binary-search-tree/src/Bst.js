@@ -149,6 +149,26 @@ class Tree {
       return count;
     }
   }
+
+  isBalanced(current = this.root) {
+    if (!current) return true;
+
+    const leftHeight = current.left ? this.height(current.left.data) : -1;
+    const rightHeight = current.right ? this.height(current.right.data) : -1;
+
+    if (Math.abs(leftHeight - rightHeight) > 1) return false;
+
+    return this.isBalanced(current.left) && this.isBalanced(current.right);
+  }
+
+  rebalance() {
+    const arr = [];
+    this.inOrderForEach((x) => {
+      arr.push(x);
+    });
+
+    this.root = this.#buildTree(arr);
+  }
 }
 
 export default Tree;
