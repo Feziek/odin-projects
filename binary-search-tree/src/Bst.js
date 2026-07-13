@@ -1,5 +1,3 @@
-import prettyPrint from './prettyPrint.js';
-
 class Node {
   constructor(value) {
     this.data = value;
