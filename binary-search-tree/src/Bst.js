@@ -137,6 +137,18 @@ class Tree {
       return findHeight(current);
     }
   }
+
+  depth(value, current = this.root, count = 0) {
+    if (!current) return;
+
+    if (current.data > value) {
+      return this.depth(value, current.left, count + 1);
+    } else if (current.data < value) {
+      return this.depth(value, current.right, count + 1);
+    } else {
+      return count;
+    }
+  }
 }
 
 export default Tree;
