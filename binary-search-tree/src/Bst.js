@@ -47,6 +47,31 @@ class Tree {
 
     return current;
   }
+
+  deleteItem(value, current = this.root) {
+    const getSuccessor = (curr) => {
+      curr = curr.right;
+      while (curr !== null && curr.left !== null) curr = curr.left;
+      return curr;
+    };
+
+    if (!this.includes(value)) return;
+    if (!current) return current;
+
+    if (current.data > value) {
+      current.left = this.deleteItem(value, current.left);
+    } else if (current.data < value) {
+      current.right = this.deleteItem(value, current.right);
+    } else {
+      if (!current.left) return current.right;
+      if (!current.right) return current.left;
+
+      const successor = getSuccessor(current);
+      current.data = successor.data;
+      current.right = this.deleteItem(successor.data, current.right);
+    }
+    return current;
+  }
 }
 
 export default Tree;
