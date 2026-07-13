@@ -73,14 +73,14 @@ class Tree {
     return current;
   }
 
-  levelOrderForEach(callback, current = this.root) {
+  levelOrderForEach(callback) {
     if (typeof callback !== 'function')
       throw new TypeError('Parameter must be a function!');
-    if (!current) return;
+    if (!this.root) return;
 
     const queue = [];
     let i = 0;
-    queue.push(current);
+    queue.push(this.root);
 
     while (queue.length > i) {
       const currentItem = queue[i++];
