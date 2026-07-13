@@ -95,9 +95,9 @@ class Tree {
       throw new TypeError('Parameter must be a function!');
     if (!current) return;
 
-    this.inOderForEach(callback, current.left);
+    this.inOrderForEach(callback, current.left);
     callback(current.data);
-    this.inOderForEach(callback, current.right);
+    this.inOrderForEach(callback, current.right);
   }
 
   preOrderForEach(callback, current = this.root) {
