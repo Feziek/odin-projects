@@ -1,5 +1,4 @@
 import Tree from './src/Bst.js';
-import prettyPrint from './src/prettyPrint.js';
 
 const t = new Tree([1, 8, 9, 45, 90, 99, 66, 12, 4, 20, 22, 11, 18, 54, 45]);
 
