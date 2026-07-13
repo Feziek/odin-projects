@@ -119,6 +119,24 @@ class Tree {
     this.postOrderForEach(callback, current.right);
     callback(current.data);
   }
+
+  height(value, current = this.root) {
+    if (!current) return;
+
+    const findHeight = (node) => {
+      if (!node) return -1;
+      let count = Math.max(findHeight(node.left), findHeight(node.right));
+      return count + 1;
+    };
+
+    if (current.data > value) {
+      return this.height(value, current.left);
+    } else if (current.data < value) {
+      return this.height(value, current.right);
+    } else {
+      return findHeight(current);
+    }
+  }
 }
 
 export default Tree;
