@@ -89,6 +89,36 @@ class Tree {
       if (currentItem.right) queue.push(currentItem.right);
     }
   }
+
+  inOrderForEach(callback, current = this.root) {
+    if (typeof callback !== 'function')
+      throw new TypeError('Parameter must be a function!');
+    if (!current) return;
+
+    this.inOderForEach(callback, current.left);
+    callback(current.data);
+    this.inOderForEach(callback, current.right);
+  }
+
+  preOrderForEach(callback, current = this.root) {
+    if (typeof callback !== 'function')
+      throw new TypeError('Parameter must be a function!');
+    if (!current) return;
+
+    callback(current.data);
+    this.preOrderForEach(callback, current.left);
+    this.preOrderForEach(callback, current.right);
+  }
+
+  postOrderForEach(callback, current = this.root) {
+    if (typeof callback !== 'function')
+      throw new TypeError('Parameter must be a function!');
+    if (!current) return;
+
+    this.postOrderForEach(callback, current.left);
+    this.postOrderForEach(callback, current.right);
+    callback(current.data);
+  }
 }
 
 export default Tree;
