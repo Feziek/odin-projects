@@ -18,7 +18,7 @@ function knightMoves(start, end) {
   while (queue.length > 0) {
     const current = queue.shift();
 
-    if (current === end) break;
+    if (current[0] === end[0] && current[1] === end[1]) break;
 
     for (const offset of offsets) {
       const neighbor = [current[0] + offset[0], current[1] + offset[1]];
