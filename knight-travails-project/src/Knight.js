@@ -45,7 +45,7 @@ function knightMoves(start, end) {
     node = parentMap.get(node.toString());
   }
 
-  console.log(`You made it in ${path.length} moves! Here's your path:`);
+  console.log(`You made it in ${path.length - 1} moves! Here's your path:`);
   path.forEach((x) => console.log(x));
 }
 
