@@ -82,4 +82,20 @@ describe('test Gameboard class', () => {
 		expect(gameboard.board[2][5].isHit).toBe(false);
 		expect(gameboard.board[2][6].isHit).toBe(false);
 	});
+
+	test('recieveAttack method working properly', () => {
+		gameboard.placeShip([2, 4], 3, true);
+		gameboard.recieveAttack([2, 6]);
+
+		expect(gameboard.board[2][6].isHit).toBe(true);
+	});
+
+	test('isAllShipsSunk method returns correct boolean', () => {
+		gameboard.placeShip([2, 4], 3, true);
+		gameboard.recieveAttack([2, 4]);
+		gameboard.recieveAttack([2, 5]);
+		gameboard.recieveAttack([2, 6]);
+
+		expect(gameboard.isAllShipsSunk()).toBe(true);
+	});
 });
