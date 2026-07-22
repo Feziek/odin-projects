@@ -4,6 +4,7 @@ class Gameboard {
 	board = Array.from({ length: 10 }, () =>
 		Array.from({ length: 10 }, () => ({ ship: null, isHit: false })),
 	);
+	#missedShot = [];
 
 	placeShip(coords, length, isHorizontal) {
 		if (!this.#isValidPosition(coords, length, isHorizontal)) return;
@@ -49,6 +50,25 @@ class Gameboard {
 		}
 
 		return result;
+	}
+
+	recieveAttack(coords) {
+		const [x, y] = coords;
+		const cell = this.board[x][y];
+
+		if (cell.isHit) return;
+		cell.isHit = true;
+
+		if (cell.ship) {
+			cell.ship.hit();
+			return;
+		}
+
+		this.#missedShot.push(coords);
+	}
+
+	get missedShot() {
+		return [...this.#missedShot];
 	}
 }
 
