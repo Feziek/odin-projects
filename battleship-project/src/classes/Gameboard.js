@@ -5,11 +5,13 @@ class Gameboard {
 		Array.from({ length: 10 }, () => ({ ship: null, isHit: false })),
 	);
 	#missedShot = [];
+	#ships = [];
 
 	placeShip(coords, length, isHorizontal) {
 		if (!this.#isValidPosition(coords, length, isHorizontal)) return;
 
 		const ship = new Ship(length);
+		this.#ships.push(ship);
 		const cells = this.#getCells(coords, length, isHorizontal);
 
 		for (const cell of cells) {
@@ -66,6 +68,10 @@ class Gameboard {
 
 		this.#missedShot.push(coords);
 	}
+
+		isAllShipsSunk() {
+			return this.#ships.every((ship) => ship.isSunk());
+		}
 
 	get missedShot() {
 		return [...this.#missedShot];
