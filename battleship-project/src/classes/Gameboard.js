@@ -8,7 +8,7 @@ class Gameboard {
 	#ships = [];
 
 	placeShip(coords, length, isHorizontal) {
-		if (!this.#isValidPosition(coords, length, isHorizontal)) return;
+		if (!this.#isValidPosition(coords, length, isHorizontal)) return false;
 
 		const ship = new Ship(length);
 		this.#ships.push(ship);
@@ -18,6 +18,8 @@ class Gameboard {
 			const [x, y] = cell;
 			this.board[x][y].ship = ship;
 		}
+
+		return true;
 	}
 
 	#isValidPosition(coords, length, isHorizontal) {
