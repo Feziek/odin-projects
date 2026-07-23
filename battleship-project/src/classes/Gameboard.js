@@ -69,9 +69,14 @@ class Gameboard {
 		this.#missedShot.push(coords);
 	}
 
-		isAllShipsSunk() {
-			return this.#ships.every((ship) => ship.isSunk());
-		}
+	isAllShipsSunk() {
+		return this.#ships.every((ship) => ship.isSunk());
+	}
+
+	isCellHit(coords) {
+		const [x, y] = coords;
+		return this.board[x][y].isHit;
+	}
 
 	get missedShot() {
 		return [...this.#missedShot];
