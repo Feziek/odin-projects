@@ -3,11 +3,11 @@ class DisplayController {
 		this.gamecontroller = controller;
 	}
 
-	renderBoard(board, visibleShip) {
+	renderBoard(board, visibleShip, isPlayer) {
 		const rowLength = board.length;
 		const container = document.querySelector('main');
 		const boardContainer = document.createElement('div');
-		boardContainer.classList.add('board');
+		boardContainer.classList.add(isPlayer ? 'player-board' : 'computer-board');
 
 		for (let row = 0; row < rowLength; row++) {
 			const rowContainer = document.createElement('div');
