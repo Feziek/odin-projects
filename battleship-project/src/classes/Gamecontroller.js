@@ -62,7 +62,7 @@ class Gamecontroller {
 		} while (i < shipLength.length);
 	}
 
-	initializeGame(callback) {
+	startGame(callback) {
 		this.randomizeShipPlace(this.computerPlayer);
 		callback();
 	}
