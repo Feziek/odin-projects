@@ -1,5 +1,6 @@
 class Gamecontroller {
 	#isProcessing = false;
+	#isGameOver = false;
 
 	constructor(player, computerPlayer) {
 		this.player = player;
@@ -8,6 +9,7 @@ class Gamecontroller {
 
 	handleAttack(coords, onComputerMove) {
 		if (this.#isProcessing) return;
+		if (this.#isGameOver) return;
 		this.#isProcessing = true;
 
 		this.computerPlayer.gameboard.recieveAttack(coords);
@@ -15,6 +17,7 @@ class Gamecontroller {
 			//placeholder need to change it later
 			console.log('Player Won!');
 			this.#isProcessing = false;
+			this.#isGameOver = true;
 			return;
 		}
 
@@ -34,6 +37,7 @@ class Gamecontroller {
 			if (this.player.gameboard.isAllShipsSunk()) {
 				//placeholder need to change it later
 				console.log('Computer Won!');
+				this.#isGameOver = true;
 			}
 
 			this.#isProcessing = false;
