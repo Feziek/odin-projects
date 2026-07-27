@@ -6,7 +6,7 @@ class Gamecontroller {
 		this.computerPlayer = computerPlayer;
 	}
 
-	handleAttack(coords) {
+	handleAttack(coords, onComputerMove) {
 		if (this.#isProcessing) return;
 		this.#isProcessing = true;
 
@@ -29,6 +29,7 @@ class Gamecontroller {
 			} while (this.player.gameboard.isCellHit([xCoord, yCoord]));
 
 			this.player.gameboard.recieveAttack([xCoord, yCoord]);
+			onComputerMove(xCoord, yCoord);
 
 			if (this.player.gameboard.isAllShipsSunk()) {
 				//placeholder need to change it later
