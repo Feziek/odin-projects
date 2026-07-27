@@ -1,3 +1,5 @@
+import Gameboard from '../classes/Gameboard';
+
 class DisplayController {
 	constructor(controller) {
 		this.gamecontroller = controller;
@@ -20,12 +22,8 @@ class DisplayController {
 				cell.dataset.col = col;
 
 				if (visibleShip && board[row][col].ship) cell.classList.add('visible');
-
-				if (board[row][col].isHit && board[row][col].ship) {
-					cell.classList.add('ship-hit');
-				} else if (board[row][col].isHit) {
-					cell.classList.add('hit');
-				}
+				const classHit = this.#getHitClass(board[row][col]);
+				if (classHit) cell.classList.add(classHit);
 
 				rowContainer.appendChild(cell);
 			}
@@ -33,6 +31,23 @@ class DisplayController {
 			boardContainer.appendChild(rowContainer);
 		}
 		container.appendChild(boardContainer);
+	}
+
+	updateCell(boardContainer, board, row, col) {
+		const cell = boardContainer.querySelector(
+			`[data-row="${row}"][data-col="${col}"]`,
+		);
+		const dataCell = board[row][col];
+		const classHit = this.#getHitClass(dataCell);
+		if (classHit) cell.classList.add(classHit);
+	}
+
+	#getHitClass(dataCell) {
+		if (dataCell.isHit && dataCell.ship) {
+			return 'ship-hit';
+		} else if (dataCell.isHit) {
+			return 'hit';
+		}
 	}
 }
 export default DisplayController;
