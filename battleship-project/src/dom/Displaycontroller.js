@@ -1,5 +1,3 @@
-import Gameboard from '../classes/Gameboard';
-
 class DisplayController {
 	constructor(controller) {
 		this.gamecontroller = controller;
@@ -48,6 +46,31 @@ class DisplayController {
 		} else if (dataCell.isHit) {
 			return 'hit';
 		}
+	}
+
+	attachOpponentListeners() {
+		const computerBoardEl = document.querySelector('.computer-board');
+		const playerBoardEl = document.querySelector('.player-board');
+		computerBoardEl.addEventListener('click', (e) => {
+			const col = Number(e.target.dataset.col);
+			const row = Number(e.target.parentElement.dataset.row);
+
+			this.gamecontroller.handleAttack([row, col], (xCoord, yCoord) => {
+				this.updateCell(
+					playerBoardEl,
+					this.gamecontroller.player.gameboard.board,
+					xCoord,
+					yCoord,
+				);
+			});
+
+			this.updateCell(
+				computerBoardEl,
+				this.gamecontroller.computerPlayer.gameboard.board,
+				row,
+				col,
+			);
+		});
 	}
 }
 export default DisplayController;
