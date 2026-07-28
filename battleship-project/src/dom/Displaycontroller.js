@@ -73,5 +73,28 @@ class DisplayController {
 			);
 		});
 	}
+
+	init() {
+		const startBtn = document.querySelector('.start-btn');
+		const randomizeBtn = document.querySelector('.random-btn');
+
+		this.renderBoard(this.gamecontroller.player.gameboard.board, true, true);
+		this.renderBoard(
+			this.gamecontroller.computerPlayer.gameboard.board,
+			false,
+			false,
+		);
+
+		startBtn.addEventListener('click', () => {
+			this.gamecontroller.startGame(() => this.attachOpponentListeners());
+			randomizeBtn.style.display = 'none';
+			startBtn.disabled = true;
+		});
+
+		randomizeBtn.addEventListener('click', () => {
+			this.gamecontroller.randomizeShipPlace(this.gamecontroller.player);
+			this.renderBoard(this.gamecontroller.player.gameboard.board, true, true);
+		});
+	}
 }
 export default DisplayController;
