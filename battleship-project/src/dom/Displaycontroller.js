@@ -3,7 +3,7 @@ class DisplayController {
 		this.gamecontroller = controller;
 	}
 
-	renderBoard(board, visibleShip, isPlayer) {
+	#renderBoard(board, visibleShip, isPlayer) {
 		document.querySelector('.player-board')?.remove();
 		const rowLength = board.length;
 		const container = document.querySelector('main');
@@ -32,7 +32,7 @@ class DisplayController {
 		container.appendChild(boardContainer);
 	}
 
-	updateCell(boardContainer, board, row, col) {
+	#updateCell(boardContainer, board, row, col) {
 		const cell = boardContainer.querySelector(
 			`[data-row="${row}"][data-col="${col}"]`,
 		);
@@ -49,7 +49,7 @@ class DisplayController {
 		}
 	}
 
-	attachOpponentListeners() {
+	#attachOpponentListeners() {
 		const computerBoardEl = document.querySelector('.computer-board');
 		const playerBoardEl = document.querySelector('.player-board');
 		computerBoardEl.addEventListener('click', (e) => {
@@ -57,7 +57,7 @@ class DisplayController {
 			const row = Number(e.target.parentElement.dataset.row);
 
 			this.gamecontroller.handleAttack([row, col], (xCoord, yCoord) => {
-				this.updateCell(
+				this.#updateCell(
 					playerBoardEl,
 					this.gamecontroller.player.gameboard.board,
 					xCoord,
@@ -65,7 +65,7 @@ class DisplayController {
 				);
 			});
 
-			this.updateCell(
+			this.#updateCell(
 				computerBoardEl,
 				this.gamecontroller.computerPlayer.gameboard.board,
 				row,
@@ -78,22 +78,22 @@ class DisplayController {
 		const startBtn = document.querySelector('.start-btn');
 		const randomizeBtn = document.querySelector('.random-btn');
 
-		this.renderBoard(this.gamecontroller.player.gameboard.board, true, true);
-		this.renderBoard(
+		this.#renderBoard(this.gamecontroller.player.gameboard.board, true, true);
+		this.#renderBoard(
 			this.gamecontroller.computerPlayer.gameboard.board,
 			false,
 			false,
 		);
 
 		startBtn.addEventListener('click', () => {
-			this.gamecontroller.startGame(() => this.attachOpponentListeners());
+			this.gamecontroller.startGame(() => this.#attachOpponentListeners());
 			randomizeBtn.style.display = 'none';
 			startBtn.disabled = true;
 		});
 
 		randomizeBtn.addEventListener('click', () => {
 			this.gamecontroller.randomizeShipPlace(this.gamecontroller.player);
-			this.renderBoard(this.gamecontroller.player.gameboard.board, true, true);
+			this.#renderBoard(this.gamecontroller.player.gameboard.board, true, true);
 		});
 	}
 }
