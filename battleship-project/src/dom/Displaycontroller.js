@@ -4,9 +4,9 @@ class DisplayController {
 	}
 
 	#renderBoard(board, visibleShip, isPlayer) {
-		if (isPlayer) document.querySelector('.player-board')?.remove();
 		const rowLength = board.length;
 		const container = document.querySelector('.boards-container');
+		const oldBoard = document.querySelector('.player-board');
 		const boardContainer = document.createElement('div');
 		boardContainer.classList.add(isPlayer ? 'player-board' : 'computer-board');
 
@@ -29,7 +29,9 @@ class DisplayController {
 
 			boardContainer.appendChild(rowContainer);
 		}
-		container.appendChild(boardContainer);
+
+		if (oldBoard && isPlayer) container.replaceChild(boardContainer, oldBoard);
+		else container.appendChild(boardContainer);
 	}
 
 	#updateCell(boardContainer, board, row, col) {
