@@ -6,7 +6,7 @@ class DisplayController {
 	#renderBoard(board, visibleShip, isPlayer) {
 		if (isPlayer) document.querySelector('.player-board')?.remove();
 		const rowLength = board.length;
-		const container = document.querySelector('main');
+		const container = document.querySelector('.boards-container');
 		const boardContainer = document.createElement('div');
 		boardContainer.classList.add(isPlayer ? 'player-board' : 'computer-board');
 
