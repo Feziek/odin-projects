@@ -120,6 +120,7 @@ class Gameboard {
 		this.board = Array.from({ length: 10 }, () =>
 			Array.from({ length: 10 }, () => ({ ship: null, isHit: false })),
 		);
+		this.#ships = [];
 	}
 }
 
