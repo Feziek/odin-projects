@@ -41,7 +41,7 @@ class Gamecontroller {
 			}
 
 			this.#isProcessing = false;
-		}, 5000);
+		}, 3000);
 	}
 
 	randomizeShipPlace(user) {
