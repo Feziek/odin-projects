@@ -95,7 +95,6 @@ class DisplayController {
 		});
 
 		randomizeBtn.addEventListener('click', () => {
-			this.gamecontroller.player.gameboard.resetBoard();
 			this.gamecontroller.randomizeShipPlace(this.gamecontroller.player);
 			this.#renderBoard(this.gamecontroller.player.gameboard.board, true, true);
 		});

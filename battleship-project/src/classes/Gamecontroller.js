@@ -45,6 +45,7 @@ class Gamecontroller {
 	}
 
 	randomizeShipPlace(user) {
+		user.gameboard.resetBoard();
 		const shipLength = [5, 4, 3, 3, 2];
 		let i = 0;
 		let xCoord;
