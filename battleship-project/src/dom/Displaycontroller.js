@@ -13,11 +13,11 @@ class DisplayController {
 		for (let row = 0; row < rowLength; row++) {
 			const rowContainer = document.createElement('div');
 			rowContainer.classList.add('row');
-			rowContainer.dataset.row = row;
 
 			for (let col = 0; col < rowLength; col++) {
 				const cell = document.createElement('div');
 				cell.classList.add('cell');
+				cell.dataset.row = row;
 				cell.dataset.col = col;
 
 				if (visibleShip && board[row][col].ship) cell.classList.add('visible');
@@ -54,7 +54,7 @@ class DisplayController {
 		const playerBoardEl = document.querySelector('.player-board');
 		computerBoardEl.addEventListener('click', (e) => {
 			const col = Number(e.target.dataset.col);
-			const row = Number(e.target.parentElement.dataset.row);
+			const row = Number(e.target.dataset.row);
 
 			this.gamecontroller.handleAttack([row, col], (xCoord, yCoord) => {
 				this.#updateCell(
