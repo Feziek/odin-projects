@@ -6,6 +6,16 @@ class Gameboard {
 	);
 	#missedShot = [];
 	#ships = [];
+	#offset = [
+		[1, 0],
+		[-1, 0],
+		[0, 1],
+		[0, -1],
+		[-1, -1],
+		[1, -1],
+		[1, 1],
+		[-1, 1],
+	];
 
 	placeShip(coords, length, isHorizontal) {
 		if (!this.#isValidPosition(coords, length, isHorizontal)) return false;
@@ -38,6 +48,9 @@ class Gameboard {
 			if (this.board[x][y].ship) return false;
 		}
 
+		if (!this.#isClearOfAdjacentShips(coords, length, isHorizontal))
+			return false;
+
 		return true;
 	}
 
@@ -54,6 +67,25 @@ class Gameboard {
 		}
 
 		return result;
+	}
+
+	#isClearOfAdjacentShips(coords, length, isHorizontal) {
+		const cells = this.#getCells(coords, length, isHorizontal);
+
+		for (const cell of cells) {
+			const [x, y] = cell;
+
+			for (const neighbor of this.#offset) {
+				const [dx, dy] = neighbor;
+				const nx = x + dx;
+				const ny = y + dy;
+
+				if (nx > 9 || nx < 0 || ny > 9 || ny < 0) continue;
+				if (this.board[nx][ny].ship) return false;
+			}
+		}
+
+		return true;
 	}
 
 	recieveAttack(coords) {
