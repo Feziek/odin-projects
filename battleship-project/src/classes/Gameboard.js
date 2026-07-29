@@ -83,6 +83,12 @@ class Gameboard {
 	get missedShot() {
 		return [...this.#missedShot];
 	}
+
+	resetBoard() {
+		this.board = Array.from({ length: 10 }, () =>
+			Array.from({ length: 10 }, () => ({ ship: null, isHit: false })),
+		);
+	}
 }
 
 export default Gameboard;
