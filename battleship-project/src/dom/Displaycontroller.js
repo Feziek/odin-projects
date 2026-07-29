@@ -4,7 +4,7 @@ class DisplayController {
 	}
 
 	#renderBoard(board, visibleShip, isPlayer) {
-		document.querySelector('.player-board')?.remove();
+		if (isPlayer) document.querySelector('.player-board')?.remove();
 		const rowLength = board.length;
 		const container = document.querySelector('main');
 		const boardContainer = document.createElement('div');
@@ -78,6 +78,7 @@ class DisplayController {
 		const startBtn = document.querySelector('.start-btn');
 		const randomizeBtn = document.querySelector('.random-btn');
 
+		this.gamecontroller.randomizeShipPlace(this.gamecontroller.player);
 		this.#renderBoard(this.gamecontroller.player.gameboard.board, true, true);
 		this.#renderBoard(
 			this.gamecontroller.computerPlayer.gameboard.board,
@@ -92,6 +93,7 @@ class DisplayController {
 		});
 
 		randomizeBtn.addEventListener('click', () => {
+			this.gamecontroller.player.gameboard.resetBoard();
 			this.gamecontroller.randomizeShipPlace(this.gamecontroller.player);
 			this.#renderBoard(this.gamecontroller.player.gameboard.board, true, true);
 		});
