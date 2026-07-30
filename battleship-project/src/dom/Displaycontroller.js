@@ -6,7 +6,9 @@ class DisplayController {
 	#renderBoard(board, visibleShip, isPlayer) {
 		const rowLength = board.length;
 		const container = document.querySelector('.boards-container');
-		const oldBoard = document.querySelector('.player-board');
+		const oldBoard = document.querySelector(
+			isPlayer ? '.player-board' : '.computer-board',
+		);
 		const boardContainer = document.createElement('div');
 		boardContainer.classList.add(isPlayer ? 'player-board' : 'computer-board');
 
@@ -30,7 +32,7 @@ class DisplayController {
 			boardContainer.appendChild(rowContainer);
 		}
 
-		if (oldBoard && isPlayer) container.replaceChild(boardContainer, oldBoard);
+		if (oldBoard) container.replaceChild(boardContainer, oldBoard);
 		else container.appendChild(boardContainer);
 	}
 
@@ -76,10 +78,7 @@ class DisplayController {
 		});
 	}
 
-	init() {
-		const startBtn = document.querySelector('.start-btn');
-		const randomizeBtn = document.querySelector('.random-btn');
-
+	#startNewGame() {
 		this.gamecontroller.randomizeShipPlace(this.gamecontroller.player);
 		this.#renderBoard(this.gamecontroller.player.gameboard.board, true, true);
 		this.#renderBoard(
@@ -87,16 +86,35 @@ class DisplayController {
 			false,
 			false,
 		);
+	}
+
+	init() {
+		const startBtn = document.querySelector('.start-btn');
+		const randomizeBtn = document.querySelector('.random-btn');
+		const restartBtn = document.querySelector('.restart-btn');
+
+		restartBtn.style.display = 'none';
+
+		this.#startNewGame();
 
 		startBtn.addEventListener('click', () => {
 			this.gamecontroller.startGame(() => this.#attachOpponentListeners());
 			randomizeBtn.style.display = 'none';
-			startBtn.disabled = true;
+			startBtn.style.display = 'none';
+			restartBtn.style.display = 'inline';
 		});
 
 		randomizeBtn.addEventListener('click', () => {
 			this.gamecontroller.randomizeShipPlace(this.gamecontroller.player);
 			this.#renderBoard(this.gamecontroller.player.gameboard.board, true, true);
+		});
+
+		restartBtn.addEventListener('click', () => {
+			restartBtn.style.display = 'none';
+			startBtn.style.display = 'inline';
+			randomizeBtn.style.display = 'inline';
+			this.gamecontroller.resetGame();
+			this.#startNewGame();
 		});
 	}
 }
