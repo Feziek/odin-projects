@@ -72,6 +72,13 @@ class Gamecontroller {
 		this.randomizeShipPlace(this.computerPlayer);
 		callback();
 	}
+
+	resetGame() {
+		this.#isProcessing = false;
+		this.#isGameOver = false;
+		this.player.gameboard.resetBoard();
+		this.computerPlayer.gameboard.resetBoard();
+	}
 }
 
 export default Gamecontroller;
