@@ -1,5 +1,9 @@
+import Player from './classes/Player.js';
+import Gamecontroller from './classes/Gamecontroller.js';
+import DisplayController from './dom/Displaycontroller.js';
 import './styles/global.css';
 
-const unusedVar = 1;
+const gameController = new Gamecontroller(new Player(), new Player());
+const displayController = new DisplayController(gameController);
 
-console.log('Hello from Webpack!');
+displayController.init();
