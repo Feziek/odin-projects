@@ -129,7 +129,12 @@ class Gameboard {
 		if (cell.ship) {
 			cell.ship.hit();
 			if (cell.ship.isSunk()) {
-				return this.#getSurroundingCells(cell.ship);
+				const surroundingCell = this.#getSurroundingCells(cell.ship);
+				for (const cell of surroundingCell) {
+					this.board[cell[0]][cell[1]].isHit = true;
+				}
+
+				return surroundingCell;
 			}
 			return;
 		}
