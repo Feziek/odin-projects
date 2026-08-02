@@ -88,6 +88,37 @@ class Gameboard {
 		return true;
 	}
 
+	#getShipCells(ship) {
+		const shipCells = [];
+		const l = this.board.length;
+		for (let row = 0; row < l; row++) {
+			for (let col = 0; col < l; col++) {
+				if (this.board[row][col].ship === ship) shipCells.push([row, col]);
+			}
+		}
+		return shipCells;
+	}
+
+	#getSurroundingCells(ship) {
+		const shipSorroundingCells = [];
+		const shipCells = this.#getShipCells(ship);
+		for (const cell of shipCells) {
+			const [x, y] = cell;
+
+			for (const neighbor of this.#offset) {
+				const [dx, dy] = neighbor;
+				const nx = x + dx;
+				const ny = y + dy;
+
+				if (nx > 9 || nx < 0 || ny > 9 || ny < 0) continue;
+				if (this.board[nx][ny].ship !== ship)
+					shipSorroundingCells.push([nx, ny]);
+			}
+		}
+
+		return shipSorroundingCells;
+	}
+
 	recieveAttack(coords) {
 		const [x, y] = coords;
 		const cell = this.board[x][y];
@@ -97,6 +128,9 @@ class Gameboard {
 
 		if (cell.ship) {
 			cell.ship.hit();
+			if (cell.ship.isSunk()) {
+				return this.#getSurroundingCells(cell.ship);
+			}
 			return;
 		}
 
