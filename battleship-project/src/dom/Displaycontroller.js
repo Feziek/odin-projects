@@ -80,6 +80,7 @@ class DisplayController {
 						this.#updateCell(boardEl, board, x, y);
 					}
 				},
+				(winner) => this.#announceWinner(winner),
 			);
 
 			this.#updateCell(
@@ -99,6 +100,29 @@ class DisplayController {
 			false,
 			false,
 		);
+	}
+
+	#announceWinner(winner) {
+		const overlay = document.createElement('div');
+		overlay.classList.add('winner-overlay');
+
+		const panel = document.createElement('div');
+		panel.classList.add('winner-panel');
+
+		const heading = document.createElement('h2');
+		heading.textContent = winner === 'player' ? 'You Win!' : 'Computer Wins!';
+
+		const playAgainBtn = document.createElement('button');
+		playAgainBtn.classList.add('play-again-btn');
+		playAgainBtn.textContent = 'Play Again';
+		playAgainBtn.addEventListener('click', () => {
+			overlay.remove();
+			document.querySelector('.restart-btn').click();
+		});
+
+		panel.append(heading, playAgainBtn);
+		overlay.appendChild(panel);
+		document.querySelector('main').appendChild(overlay);
 	}
 
 	init() {
