@@ -60,14 +60,27 @@ class DisplayController {
 			const col = Number(e.target.dataset.col);
 			const row = Number(e.target.dataset.row);
 
-			this.gamecontroller.handleAttack([row, col], (xCoord, yCoord) => {
-				this.#updateCell(
-					playerBoardEl,
-					this.gamecontroller.player.gameboard.board,
-					xCoord,
-					yCoord,
-				);
-			});
+			this.gamecontroller.handleAttack(
+				[row, col],
+				(xCoord, yCoord) => {
+					this.#updateCell(
+						playerBoardEl,
+						this.gamecontroller.player.gameboard.board,
+						xCoord,
+						yCoord,
+					);
+				},
+				(board, coordsArr) => {
+					const boardEl =
+						this.gamecontroller.player.gameboard.board === board
+							? playerBoardEl
+							: computerBoardEl;
+					for (const cell of coordsArr) {
+						const [x, y] = cell;
+						this.#updateCell(boardEl, board, x, y);
+					}
+				},
+			);
 
 			this.#updateCell(
 				computerBoardEl,
