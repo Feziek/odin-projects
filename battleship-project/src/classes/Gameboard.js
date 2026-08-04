@@ -123,23 +123,34 @@ class Gameboard {
 		const [x, y] = coords;
 		const cell = this.board[x][y];
 
-		if (cell.isHit) return;
+		if (cell.isHit) return { hit: false, sunkCells: [] };
 		cell.isHit = true;
 
 		if (cell.ship) {
 			cell.ship.hit();
 			if (cell.ship.isSunk()) {
-				const surroundingCell = this.#getSurroundingCells(cell.ship);
-				for (const cell of surroundingCell) {
+				const surroundingCells = this.#getSurroundingCells(cell.ship);
+				for (const cell of surroundingCells) {
 					this.board[cell[0]][cell[1]].isHit = true;
 				}
 
-				return surroundingCell;
+				return {
+					hit: true,
+					sunkCells: surroundingCells,
+				};
 			}
-			return;
+			return {
+				hit: true,
+				sunkCells: [],
+			};
 		}
 
 		this.#missedShot.push(coords);
+
+		return {
+			hit: false,
+			sunkCells: [],
+		};
 	}
 
 	isAllShipsSunk() {
