@@ -7,21 +7,22 @@ class Gamecontroller {
 		this.computerPlayer = computerPlayer;
 	}
 
-	handleAttack(coords, onComputerMove, onShipSunk, onGameOver) {
+	handleAttack(coords, onComputerMove, onShipSunk, onGameOver, onAttackResult) {
 		if (this.#isProcessing) return;
 		if (this.#isGameOver) return;
 		if (this.computerPlayer.gameboard.isCellHit(coords)) return;
 		this.#isProcessing = true;
 
-		const computerNeighbourCoords =
+		const { hit, sunkCells } =
 			this.computerPlayer.gameboard.recieveAttack(coords);
 
-		if (computerNeighbourCoords) {
-			onShipSunk(this.computerPlayer.gameboard.board, computerNeighbourCoords);
+		if (sunkCells.length > 0) {
+			onShipSunk(this.computerPlayer.gameboard.board, sunkCells);
 		}
 
+		onAttackResult(hit, 'player');
+
 		if (this.computerPlayer.gameboard.isAllShipsSunk()) {
-			//placeholder need to change it later
 			onGameOver('player');
 			this.#isProcessing = false;
 			this.#isGameOver = true;
@@ -38,18 +39,18 @@ class Gamecontroller {
 				yCoord = Math.floor(Math.random() * 10);
 			} while (this.player.gameboard.isCellHit([xCoord, yCoord]));
 
-			const playerNeighbourCoords = this.player.gameboard.recieveAttack([
+			const { hit, sunkCells } = this.player.gameboard.recieveAttack([
 				xCoord,
 				yCoord,
 			]);
 
-			if (playerNeighbourCoords) {
-				onShipSunk(this.player.gameboard.board, playerNeighbourCoords);
+			if (sunkCells.length > 0) {
+				onShipSunk(this.player.gameboard.board, sunkCells);
 			}
 			onComputerMove(xCoord, yCoord);
+			onAttackResult(hit, 'computer');
 
 			if (this.player.gameboard.isAllShipsSunk()) {
-				//placeholder need to change it later
 				onGameOver('computer');
 				this.#isGameOver = true;
 			}
