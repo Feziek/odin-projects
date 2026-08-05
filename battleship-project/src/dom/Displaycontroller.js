@@ -81,9 +81,8 @@ class DisplayController {
 					}
 				},
 				(winner) => this.#announceWinner(winner),
-				(hit, currentPlayer) => this.#announceRound(hit, currentPlayer)
+				(hit, currentPlayer) => this.#announceRound(hit, currentPlayer),
 			);
-
 
 			this.#updateCell(
 				computerBoardEl,
@@ -126,18 +125,18 @@ class DisplayController {
 		overlay.appendChild(panel);
 		document.querySelector('main').appendChild(overlay);
 	}
-	
+
 	#announceRound(hit, currentPlayer) {
-	  const statusEl = document.querySelector(".round-status")
-	  if (hit && currentPlayer === 'player') {
-	    statusEl.textContent = "You hit a ship!"
-	  } else if (!hit && currentPlayer === 'player') {
-	    statusEl.textContent = "You missed."
-	  } else if (hit && currentPlayer === 'computer') {
-	    statusEl.textContent = "Computer hit a ship!"
-	  } else if (!hit && currentPlayer === 'computer') {
-	    statusEl.textContent = "Computer missed."
-	  }
+		const statusEl = document.querySelector('.round-status');
+		if (hit && currentPlayer === 'player') {
+			statusEl.textContent = 'You hit a ship!';
+		} else if (!hit && currentPlayer === 'player') {
+			statusEl.textContent = 'You missed.';
+		} else if (hit && currentPlayer === 'computer') {
+			statusEl.textContent = 'Computer hit a ship!';
+		} else if (!hit && currentPlayer === 'computer') {
+			statusEl.textContent = 'Computer missed.';
+		}
 	}
 
 	init() {
