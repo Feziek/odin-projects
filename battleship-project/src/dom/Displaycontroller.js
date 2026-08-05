@@ -166,6 +166,8 @@ class DisplayController {
 			randomizeBtn.style.display = 'inline';
 			this.gamecontroller.resetGame();
 			this.#startNewGame();
+			document.querySelector('.round-status').innerHTML =
+				'Awaiting orders&hellip;';
 		});
 	}
 }
