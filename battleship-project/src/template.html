@@ -4,16 +4,28 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil:wght@700&family=IBM+Plex+Mono:wght@500&family=Public+Sans:wght@400;600&display=swap"
+			rel="stylesheet"
+		/>
 		<title>Battleship</title>
 	</head>
 	<body>
-		<header>Battleship</header>
+		<header class="plaque">
+			<h1>Battleship</h1>
+		</header>
+
 		<main>
-			<div class="round-status"></div>
 			<div class="boards-container"></div>
-			<button class="start-btn">Start</button>
-			<button class="random-btn">Randomize</button>
-			<button class="restart-btn">Restart</button>
+			<div class="control-deck">
+				<p class="round-status">Awaiting orders&hellip;</p>
+				<div class="btn-row">
+					<button class="random-btn">Randomize Fleet</button>
+					<button class="start-btn">Deploy</button>
+					<button class="restart-btn">New Engagement</button>
+				</div>
+			</div>
 		</main>
 	</body>
 </html>
