@@ -1,7 +1,7 @@
 import '../css/home.css';
 
 function homePage() {
-	return `
+  return `
 			<section class="hero-section">
 				<h2>Savor Simplicity, Elegant Taste</h2>
 				<button>Reserve a Table</button>

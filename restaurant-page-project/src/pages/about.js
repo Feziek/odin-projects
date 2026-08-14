@@ -1,7 +1,7 @@
 import '../css/about.css';
 
 function aboutPage() {
-	return `
+  return `
     <section class="about-section">
       <div class="about-heading">
         <p class="label">Our Story</p>

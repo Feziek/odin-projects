@@ -1,7 +1,7 @@
-import "../css/menu.css"
+import '../css/menu.css';
 
 function menuPage() {
-	return `
+  return `
   <section class="menu-section">
   	<p class="label">Sunday Table</p>
   	<h2>Our Menu</h2>
