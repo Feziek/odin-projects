@@ -1,65 +1,67 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<link rel="stylesheet" href="./css/style.css" />
-		<title>Tic Tac Toe</title>
-	</head>
-	<body>
-		<h1>Tic Tac Toe</h1>
-		<form>
-			<p class="form-subtitle">Enter player names to begin</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Tic Tac Toe</title>
+  </head>
+  <body>
+    <h1>Tic Tac Toe</h1>
+    <form>
+      <p class="form-subtitle">Enter player names to begin</p>
 
-			<div class="player-field x-field">
-				<label class="player-label">
-					<span class="x-label">X</span> Player 1
-				</label>
-				<input
-					class="player1-input"
-					type="text"
-					placeholder="Enter name..."
-					maxlength="20" />
-			</div>
+      <div class="player-field x-field">
+        <label class="player-label">
+          <span class="x-label">X</span> Player 1
+        </label>
+        <input
+          class="player1-input"
+          type="text"
+          placeholder="Enter name..."
+          maxlength="20"
+        />
+      </div>
 
-			<div class="player-field o-field">
-				<label class="player-label">
-					<span class="o-label">O</span> Player 2
-				</label>
-				<input
-					class="player2-input"
-					type="text"
-					placeholder="Enter name..."
-					maxlength="20" />
-			</div>
+      <div class="player-field o-field">
+        <label class="player-label">
+          <span class="o-label">O</span> Player 2
+        </label>
+        <input
+          class="player2-input"
+          type="text"
+          placeholder="Enter name..."
+          maxlength="20"
+        />
+      </div>
 
-			<div class="divider">vs</div>
+      <div class="divider">vs</div>
 
-			<button type="button" class="start-btn">Start Game</button>
-		</form>
-		<div class="wrapper none">
-			<header>
-				<div class="logo">
-					<span class="x">X</span> <span class="o">O</span>
-				</div>
-				<div class="turn x-turn">Player 1's Turn</div>
-			</header>
-			<main>
-				<div class="box-container">
-					<div class="box" data-index="0"></div>
-					<div class="box" data-index="1"></div>
-					<div class="box" data-index="2"></div>
-					<div class="box" data-index="3"></div>
-					<div class="box" data-index="4"></div>
-					<div class="box" data-index="5"></div>
-					<div class="box" data-index="6"></div>
-					<div class="box" data-index="7"></div>
-					<div class="box" data-index="8"></div>
-				</div>
-				<button class="restart-btn">Restart Game</button>
-			</main>
-		</div>
-		<script src="js/index.js"></script>
-	</body>
+      <button type="button" class="start-btn">Start Game</button>
+    </form>
+    <div class="wrapper none">
+      <header>
+        <div class="logo">
+          <span class="x">X</span> <span class="o">O</span>
+        </div>
+        <div class="turn x-turn">Player 1's Turn</div>
+      </header>
+      <main>
+        <div class="box-container">
+          <div class="box" data-index="0"></div>
+          <div class="box" data-index="1"></div>
+          <div class="box" data-index="2"></div>
+          <div class="box" data-index="3"></div>
+          <div class="box" data-index="4"></div>
+          <div class="box" data-index="5"></div>
+          <div class="box" data-index="6"></div>
+          <div class="box" data-index="7"></div>
+          <div class="box" data-index="8"></div>
+        </div>
+        <button class="restart-btn">Restart Game</button>
+      </main>
+    </div>
+    <script src="js/index.js"></script>
+  </body>
 </html>
