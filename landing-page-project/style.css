@@ -4,25 +4,38 @@
   box-sizing: border-box;
 }
 
-.header,
+body {
+  font-family:
+    'Segoe UI',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color: #1f2937;
+}
+
 .second-section,
 .third-section {
   height: 50dvh;
 }
 
 .header {
+  min-height: 50dvh;
   background: #1f2937;
   color: white;
   display: flex;
   flex-direction: column;
 }
+
 .header-content {
   display: flex;
   padding: 36px 0;
   justify-content: space-around;
 }
+
 .header-content h1 {
   font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   color: #f9faf8;
 }
 
@@ -31,16 +44,25 @@ ul {
   display: flex;
   align-items: center;
   gap: 32px;
-  font-size: 18x;
+  font-size: 18px;
+}
+
+ul li {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+ul li:hover {
+  color: #3882f6;
 }
 
 .hero {
-  height: 50dvh;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 90px;
-  padding: 36px;
+  padding: 48px 36px;
 }
 
 .right-side {
@@ -49,46 +71,66 @@ ul {
 
 .right-side h2 {
   font-size: 48px;
-  font-weight: 900;
-  margin-bottom: 10px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 16px;
   color: #f9faf8;
 }
 
 .right-side p {
   font-size: 18px;
-  margin-bottom: 10px;
-  color: #e5e7eb;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #cbd5e1;
 }
 
 .right-side button,
 .contact button {
-  padding: 8px 16px;
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: 600;
   color: white;
   background: #3882f6;
   border: none;
   border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.right-side button:hover,
+.contact button:hover {
+  background: #2f6fd6;
+  transform: translateY(-1px);
 }
 
 .img {
   height: 200px;
   width: 400px;
-  border: 1px solid white;
+  background: #2b3648;
+  border: 1px solid #3d4a61;
+  border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
 }
 
 .second-section h2 {
-  padding: 36px;
-  font-size: 36px;
+  padding: 48px 36px 36px;
+  font-size: 32px;
+  font-weight: 800;
   text-align: center;
-  font-weight: 900;
+  color: #1f2937;
 }
 
 .cards-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   gap: 32px;
   color: #1f2937;
 }
@@ -98,12 +140,27 @@ ul {
   text-align: center;
 }
 
+.card p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #4b5563;
+}
+
 .cardbox {
   height: 150px;
   width: 150px;
+  background: #eff4ff;
   border: 2px solid #3882f6;
   border-radius: 16px;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover .cardbox {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(56, 130, 246, 0.2);
 }
 
 .third-section {
@@ -122,15 +179,18 @@ ul {
 }
 
 .qoute {
-  font-size: 36px;
+  font-size: 32px;
   font-style: italic;
   font-weight: 300;
+  line-height: 1.5;
+  color: #374151;
 }
 
 .credit {
   align-self: end;
-  font-size: 24px;
-  font-weight: bold;
+  margin-top: 16px;
+  font-size: 20px;
+  font-weight: 700;
   color: #1f2937;
 }
 
@@ -150,17 +210,36 @@ ul {
   width: 70%;
   background: #3882f6;
   color: white;
-  border-radius: 5px;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(56, 130, 246, 0.25);
+}
+
+.contact h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.contact p {
+  font-size: 16px;
+  color: #e0ecff;
 }
 
 .contact button {
   border: 2px solid white;
+  background: transparent;
+}
+
+.contact button:hover {
+  background: white;
+  color: #3882f6;
 }
 
 .footer {
   height: 10dvh;
   background: #1f2937;
-  color: white;
+  color: #cbd5e1;
+  font-size: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
