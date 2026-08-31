@@ -4,7 +4,312 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg-color: #ffffff;
+  --text-main: #333333;
+  --text-light: #666666;
+  --teal-accent: #0f82a1;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Roboto', sans-serif;
+}
+
 body {
-  background-color: azure;
-  color: darkslategrey;
+  font-family: var(--font-sans);
+  color: var(--text-main);
+  background-color: #f4f4f4;
+  line-height: 1.6;
+}
+
+h1,
+h2 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.hero {
+  position: relative;
+}
+
+.hero-name {
+  background-image: url('../assets/images/pikachu-hero.jpg');
+  height: 400px;
+  background-size: cover;
+  background-position: top;
+  position: relative;
+}
+
+.hero-name span {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: white;
+  z-index: 3;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
+.about {
+  padding: 40px 30px 20px;
+  text-align: center;
+  background-color: var(--bg-color);
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about p {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  color: #222;
+  font-size: 1.8rem;
+  text-decoration: none;
+  transition:
+    color 0.3s,
+    transform 0.2s;
+}
+
+.social-icons a:hover {
+  color: var(--teal-accent);
+  transform: translateY(-3px);
+}
+
+.work {
+  padding: 40px 20px;
+  background-color: #fafafa;
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-placeholder {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 20px;
+  line-height: 1.2;
+}
+
+.card:nth-child(1) .card-img-placeholder {
+  background-color: #7b72c0;
+}
+.card:nth-child(2) .card-img-placeholder {
+  background-color: #d18b45;
+}
+.card:nth-child(3) .card-img-placeholder {
+  background-color: #638c5b;
+}
+.card:nth-child(4) .card-img-placeholder {
+  background-color: #c57696;
+}
+.card:nth-child(5) .card-img-placeholder {
+  background-color: #4c8dd0;
+}
+.card:nth-child(6) .card-img-placeholder {
+  background-color: #6a9159;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-header h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.card-links a {
+  color: #333;
+  margin-left: 12px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.card-links a:hover {
+  color: var(--teal-accent);
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.contact {
+  background-color: var(--teal-accent);
+  color: white;
+  text-align: center;
+}
+
+.contact h2 {
+  color: white;
+  padding-top: 40px;
+}
+
+.contact-info {
+  padding: 0 30px;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.contact-info p {
+  margin-bottom: 15px;
+}
+
+.contact .social-icons {
+  padding-bottom: 30px;
+}
+
+.contact .social-icons a {
+  color: #111;
+}
+
+.contact .social-icons a:hover {
+  color: #fff;
+}
+
+.footer-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .hero-name {
+    height: 500px;
+  }
+
+  .hero-name span {
+    font-size: 4.5rem;
+    bottom: 30px;
+    left: 40px;
+  }
+
+  .about,
+  .work {
+    padding: 60px 40px;
+  }
+
+  .project-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    background: linear-gradient(
+      105deg,
+      var(--teal-accent) 40%,
+      transparent 40%
+    );
+  }
+
+  .hero-name {
+    height: 600px;
+  }
+
+  .hero-name span {
+    font-size: 5.5rem;
+    left: 60px;
+  }
+
+  .about p {
+    text-align: center;
+  }
+
+  .project-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  .contact-wrapper {
+    display: flex;
+    align-items: stretch;
+    text-align: left;
+  }
+
+  .contact-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+  }
+
+  .contact-text h2 {
+    text-align: left;
+    padding-top: 0;
+  }
+
+  .contact-info {
+    padding: 0;
+  }
+
+  .contact .social-icons {
+    justify-content: flex-start;
+  }
+
+  .contact-image {
+    flex: 1;
+  }
+
+  .footer-img {
+    height: 100%;
+    min-height: 400px;
+  }
 }
