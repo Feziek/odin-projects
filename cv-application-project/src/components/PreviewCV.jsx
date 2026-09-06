@@ -1,4 +1,4 @@
-function PreviewCSV({ name, email, contact }) {
+function PreviewCV({ name, email, contact }) {
   return (
     <div className='preview'>
       <section className='general-info'>
@@ -6,8 +6,11 @@ function PreviewCSV({ name, email, contact }) {
         <p>Email: {email}</p>
         <p>Contact: {contact}</p>
       </section>
+      <section className="education">
+        
+      </section>
     </div>
   );
 }
 
-export default PreviewCSV;
+export default PreviewCV;
