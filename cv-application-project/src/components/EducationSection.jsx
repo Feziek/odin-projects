@@ -12,7 +12,7 @@ function EducationSection({
         <EducationEntry
           key={item.id}
           handleSubmit={handleSubmit}
-          handleDelete={()=> handleDeleteEntry(item.id)}
+          handleDelete={() => handleDeleteEntry(item.id)}
           {...item}
         />
       ))}
