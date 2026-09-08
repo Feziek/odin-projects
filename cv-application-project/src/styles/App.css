@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #eaf2f7;
+  color: #1b3a5c;
+}
+
+.app-title {
+  padding: 1.5rem 2.5rem;
+  font-family: 'Source Serif 4', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #eaf2f7;
+  background: #1b3a5c;
+  letter-spacing: 0.2px;
+}
+
+.app-body {
+  display: flex;
+  align-items: flex-start;
+  min-height: calc(100vh - 68px);
+}
+
+.form-panel {
+  width: 400px;
+  flex-shrink: 0;
+  padding: 2rem 2rem 4rem 2rem;
+  border-right: 1px solid #e2ecf2;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.workspace-heading {
+  font-weight: 600;
+  color: #5b8fa8;
+  letter-spacing: 0.03em;
+  margin: 2rem 0 0.75rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e2ecf2;
+}
+
+.workspace-heading:first-child {
+  margin-top: 0;
+}
+
+.form-panel section.general-info-form,
+.form-panel form.general-info-form {
+  padding: 0 0 1.5rem 0;
+  border-bottom: 1px solid #e2ecf2;
+}
+
+.entry-card {
+  background: #fff;
+  border: 1px solid #dde8ef;
+  border-radius: 6px;
+  padding: 1.1rem 1.1rem 1rem 1.1rem;
+  margin-bottom: 0.85rem;
+}
+
+.form-section {
+  margin-bottom: 0.9rem;
+}
+
+.form-section--split {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.form-section--split > div {
+  flex: 1;
+}
+
+.form-section:last-child {
+  margin-bottom: 0;
+}
+
+.form-panel label {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: #3d6e8c;
+  margin-bottom: 0.3rem;
+}
+
+.form-panel input {
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid #c3d7e3;
+  border-radius: 4px;
+  font-size: 0.88rem;
+  font-family: inherit;
+  background: #fbfdfe;
+  color: #1b3a5c;
+  transition: border-color 0.15s ease;
+}
+
+.form-panel input:focus {
+  outline: none;
+  border-color: #3d6e8c;
+  background: #fff;
+}
+
+.button-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.form-panel button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: inherit;
+  transition: background 0.15s ease;
+}
+
+.form-panel button[type='submit'],
+.form-panel .add-entry-btn {
+  background: #3d6e8c;
+  color: #fff;
+}
+
+.form-panel button[type='submit']:hover,
+.form-panel .add-entry-btn:hover {
+  background: #2f5a72;
+}
+
+.form-panel button[type='button']:not(.delete-btn) {
+  background: transparent;
+  color: #3d6e8c;
+  border: 1px solid #c3d7e3;
+}
+
+.form-panel button[type='button']:not(.delete-btn):hover {
+  background: #dcebf2;
+}
+
+.delete-btn {
+  background: transparent;
+  color: #c9432e;
+  border: 1px solid #e3bcb4;
+}
+
+.delete-btn:hover {
+  background: #fbeceb;
+}
+
+.add-entry-btn {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.25rem;
+}
+
+.section-title {
+  font-family: 'Source Serif 4', serif;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: #1b3a5c;
+  margin: 0 0 0.9rem 0;
+}
+
+.entry-meta {
+  font-size: 0.82rem;
+  color: #5b8fa8;
+}
+
+/* Right: preview */
+.preview-panel {
+  flex: 1;
+  padding: 3rem 2rem;
+  display: flex;
+  justify-content: center;
+}
