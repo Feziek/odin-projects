@@ -1,11 +1,16 @@
-function GeneralInfo({ handleChange }) {
+import { useState } from 'react';
+
+function GeneralInfo({ handleSubmit }) {
+  const [isSubmit, setSubmit] = useState(false);
+
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const formValue = Object.fromEntries(formData.entries());
-        handleChange(formValue);
+        handleSubmit(formValue);
+        setSubmit(!isSubmit);
       }}
     >
       <label htmlFor='name'>Name</label> {''}
@@ -21,7 +26,7 @@ function GeneralInfo({ handleChange }) {
         title='Please enter numbers only.'
         required
       />
-      <button type='submit'>Confirm</button>
+      <button type='submit'>{isSubmit ? 'Edit' : 'Confirm'}</button>
     </form>
   );
 }
