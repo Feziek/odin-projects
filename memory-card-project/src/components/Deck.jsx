@@ -3,7 +3,7 @@ import Card from './Card';
 
 const POKEMON_IDS = [1, 22, 13, 4, 5, 99, 2, 18, 19, 20, 11, 7];
 
-export default function Deck() {
+export default function Deck({ onGameUpdate }) {
   const [cards, setCards] = useState([]);
   const [clickedCards, setClickedCards] = useState(new Set());
 
@@ -21,17 +21,20 @@ export default function Deck() {
   function handleClick(id) {
     if (clickedCards.has(id)) {
       console.log('game over');
+      onGameUpdate({ status: 'lose', score: clickedCards.size });
       return;
     }
 
     if (clickedCards.size + 1 === POKEMON_IDS.length) {
       console.log('you won');
+      onGameUpdate({ status: 'win', score: POKEMON_IDS.length });
       return;
     }
 
     const newClickedCards = new Set(clickedCards);
     newClickedCards.add(id);
 
+    onGameUpdate({ status: 'valid', score: clickedCards.size + 1 });
     setClickedCards(newClickedCards);
     shuffleCards();
   }
