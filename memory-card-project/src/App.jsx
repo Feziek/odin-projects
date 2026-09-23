@@ -98,8 +98,8 @@ export default function App() {
           </p>
         </Modal>
       ) : gameStatus === 'lose' ? (
-        <Modal>
-          <p onClick={handlePlayAgain}>
+        <Modal onClick={handlePlayAgain}>
+          <p>
             You lose! You've touched{' '}
             {
               cards.find((card) => card.id === Array.from(clickedCards).at(-1))
