@@ -11,6 +11,7 @@ export default function App() {
   const [cards, setCards] = useState([]);
   const [clickedCards, setClickedCards] = useState(new Set());
   const [gameStatus, setGameStatus] = useState('playing');
+  const [repeatedClickedCard, setRepeatedClickedCard] = useState(null);
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -52,6 +53,8 @@ export default function App() {
   function handleClick(id) {
     if (clickedCards.has(id) || gameStatus === 'lose') {
       console.log('game over');
+      const newRepeatedClickedCard = cards.find((card) => card.id === id)?.name;
+      setRepeatedClickedCard(newRepeatedClickedCard);
       setGameStatus('lose');
       return;
     }
@@ -72,6 +75,7 @@ export default function App() {
 
   function restartGame() {
     setClickedCards(new Set());
+    setRepeatedClickedCard(null);
     setCurrentScore(0);
     shuffleCards();
     setGameStatus('playing');
@@ -94,12 +98,8 @@ export default function App() {
       ) : gameStatus === 'lose' ? (
         <Modal onClick={handlePlayAgain}>
           <p>
-            You lose! You've touched{' '}
-            {
-              cards.find((card) => card.id === Array.from(clickedCards).at(-1))
-                ?.name
-            }{' '}
-            card twice. Better luck next time!
+            You lose! You've touched {repeatedClickedCard} card twice. Better
+            luck next time!
           </p>
         </Modal>
       ) : null}
