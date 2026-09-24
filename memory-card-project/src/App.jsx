@@ -77,13 +77,7 @@ export default function App() {
     setGameStatus('playing');
   }
 
-  function handlePlayAgain(gameStatus) {
-    if (gameStatus === 'win') {
-      setHighestScore(0);
-      restartGame();
-      return;
-    }
-
+  function handlePlayAgain() {
     if (highestScore < currentScore) setHighestScore(currentScore);
     restartGame();
   }
