@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Deck from './components/Deck';
 import Scoreboard from './components/Scoreboard';
 import Modal from './components/Modal';
+import './styles/App.css';
 
 const POKEMON_IDS = [1, 22, 13, 4, 5, 99, 2, 18, 19, 20, 11, 7];
 
@@ -98,7 +99,7 @@ export default function App() {
       ) : gameStatus === 'lose' ? (
         <Modal onClick={handlePlayAgain}>
           <p>
-            You lose! You've touched {repeatedClickedCard} card twice. Better
+            You lose! You've touched {repeatedClickedCard}'s card twice. Better
             luck next time!
           </p>
         </Modal>
