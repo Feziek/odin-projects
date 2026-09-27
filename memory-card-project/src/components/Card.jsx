@@ -1,3 +1,5 @@
+import '../styles/Card.css';
+
 export default function Card({ id, name, image, onClick }) {
   return (
     <div className='card' onClick={() => onClick(id)}>

@@ -1,0 +1,37 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-accent);
+}
+
+.card:active {
+  transform: translateY(-1px);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: var(--color-bg);
+  border-radius: var(--radius-sm);
+}
+
+.card p {
+  margin: var(--space-3) 0 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+  text-transform: capitalize;
+}
