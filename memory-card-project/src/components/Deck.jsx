@@ -1,4 +1,5 @@
 import Card from './Card';
+import '../styles/Deck.css';
 
 export default function Deck({ cards, onCardClick }) {
   return (

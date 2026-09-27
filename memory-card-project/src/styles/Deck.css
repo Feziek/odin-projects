@@ -1,0 +1,15 @@
+.deck {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--space-4);
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-6) clamp(var(--space-4), 4vw, 48px);
+}
+
+@media (max-width: 480px) {
+  .deck {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--space-3);
+  }
+}
