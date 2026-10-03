@@ -38,6 +38,7 @@ All projects are built with **HTML**, **CSS**, and **JavaScript**.
 | ------------------------------ | ----------------------------------------------- |
 | Battleship                     | [Play](https://battleshipzef.netlify.app/)      |
 | Tic Tac Toe                    | [Play](https://tic-tac-toe-feziek.netlify.app/) |
+| Memory Game                    | [Play](https://memory-game-eight-swart-24.vercel.app/)            |
 | Raindar (Weather App)          | [View](https://raindar.netlify.app/)            |
 | Sunday Table (Restaurant Page) | [View](https://sunday-table.netlify.app/)       |
 | CYV (Create Your CV)           | [View](https://create-your-cv-inky.vercel.app/) |
