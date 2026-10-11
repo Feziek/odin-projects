@@ -1,5 +1,13 @@
-const App = () => {
-  return <h1>Hello World!</h1>;
-};
+import { Outlet } from 'react-router';
+import Navbar from './components/Navbar/Navbar';
 
-export default App;
+export default function App() {
+  return (
+    <>
+      <Navbar />
+      <main>
+        <Outlet />
+      </main>
+    </>
+  );
+}
