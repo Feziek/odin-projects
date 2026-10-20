@@ -1,6 +1,11 @@
 import { Link } from 'react-router';
 
-export default function Navbar() {
+export default function Navbar({ cart }) {
+  const itemsQuantity = cart.reduce(
+    (currentQuantity, item) => currentQuantity + item.quantity,
+    0,
+  );
+
   return (
     <nav>
       <div>Logo</div>
@@ -9,6 +14,7 @@ export default function Navbar() {
         <Link to='/shop'>Shop</Link>
         <Link to='/cart'>Cart</Link>
       </ul>
+      <span>({itemsQuantity})</span>
     </nav>
   );
 }
