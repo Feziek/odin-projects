@@ -3,9 +3,7 @@ import ProductCard from '../components/ProductCard/ProductCard';
 import { useProducts } from '../hooks/useProducts';
 
 export default function Shop() {
-  const { cart, addToCart, updateQuantity, removeFromCart } =
-    useOutletContext();
-
+  const { cart, addToCart } = useOutletContext();
   const [products] = useProducts();
 
   return (
