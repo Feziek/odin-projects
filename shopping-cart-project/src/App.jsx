@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <>
-      <Navbar cart={cart}/>
+      <Navbar cart={cart} />
       <main>
         <Outlet context={{ cart, addToCart, updateQuantity, removeFromCart }} />
       </main>
