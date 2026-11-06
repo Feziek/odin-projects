@@ -14,7 +14,7 @@ export default function Shop() {
           {products.map((product) => {
             const { id, title, description, price, image } = product;
             let inCart = false;
-            if (cart.some((item) => item.product.id === id)) inCart = true;
+            if (cart.some((item) => item.id === id)) inCart = true;
             return (
               <ProductCard
                 key={id}
