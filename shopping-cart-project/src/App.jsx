@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router';
 import Navbar from './components/Navbar/Navbar';
 import { useState } from 'react';
+import { Toaster } from 'react-hot-toast';
 
 export default function App() {
   const [cart, setCart] = useState([]);
@@ -13,20 +14,31 @@ export default function App() {
         return prev;
       }
 
-      return [...prev, { product, quantity }];
+      return [
+        ...prev,
+        {
+          id: product.id,
+          title: product.title,
+          image: product.image,
+          price: product.price,
+          quantity,
+        },
+      ];
     });
   };
 
-  const updateQuantity = (product, quantity = 1) => {
+  const updateQuantity = (id, change) => {
     setCart((prev) =>
       prev.map((item) =>
-        item.id === product.id ? { ...item, quantity } : item,
+        item.id === id
+          ? { ...item, quantity: Math.max(1, item.quantity + change) }
+          : item,
       ),
     );
   };
 
-  const removeFromCart = (product) => {
-    setCart((prev) => prev.filter((item) => item.id !== product.id));
+  const removeFromCart = (id) => {
+    setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
   return (
@@ -35,6 +47,7 @@ export default function App() {
       <main>
         <Outlet context={{ cart, addToCart, updateQuantity, removeFromCart }} />
       </main>
+      <Toaster />
     </>
   );
 }
