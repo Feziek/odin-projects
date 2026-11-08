@@ -1,0 +1,118 @@
+.item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto 6rem auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.info {
+  min-width: 0;
+}
+
+.title {
+  margin: 0 0 0.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.price {
+  margin: 0;
+  color: var(--muted);
+}
+
+.controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.stepButton {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--blue-tint);
+  color: var(--blue-dark);
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.stepButton:hover {
+  background: #d3e2fd;
+}
+
+.quantity {
+  min-width: 2rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.subtotal {
+  margin: 0;
+  text-align: right;
+  font-weight: 800;
+}
+
+.removeButton {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: none;
+  color: var(--danger);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.removeButton:hover {
+  background: #fdecec;
+}
+
+@media (max-width: 640px) {
+  .item {
+    grid-template-columns: 72px 1fr;
+    grid-template-areas:
+      'image info'
+      'controls subtotal'
+      'remove remove';
+  }
+
+  .image {
+    grid-area: image;
+    width: 72px;
+    height: 72px;
+  }
+
+  .info {
+    grid-area: info;
+  }
+
+  .controls {
+    grid-area: controls;
+    justify-self: start;
+  }
+
+  .subtotal {
+    grid-area: subtotal;
+  }
+
+  .removeButton {
+    grid-area: remove;
+    justify-self: start;
+    padding-left: 0;
+  }
+}
