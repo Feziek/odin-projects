@@ -1,6 +1,7 @@
 import { Link, useOutletContext } from 'react-router';
 import toast from 'react-hot-toast';
 import CartItem from '../components/CartItem/CartItem';
+import styles from '../styles/Cart.module.css';
 
 export default function Cart() {
   const { cart, updateQuantity, removeFromCart } = useOutletContext();
@@ -12,28 +13,39 @@ export default function Cart() {
   };
 
   return (
-    <>
+    <section>
       <h1>Cart</h1>
       {cart.length === 0 ? (
-        <p>
-          Your cart is empty. <Link to='/shop'>Start shopping</Link>
+        <p className={styles.empty}>
+          Your cart is empty.{' '}
+          <Link to='/shop' className={styles.shopLink}>
+            Start shopping
+          </Link>
         </p>
       ) : (
         <>
-          {cart.map((item) => (
-            <CartItem
-              key={item.id}
-              {...item}
-              onUpdateQuantity={updateQuantity}
-              onRemove={removeFromCart}
-            />
-          ))}
-          <p>Total: ${total.toFixed(2)}</p>
-          <button type='button' onClick={handleCheckout}>
-            Checkout
-          </button>
+          <div className={styles.list}>
+            {cart.map((item) => (
+              <CartItem
+                key={item.id}
+                {...item}
+                onUpdateQuantity={updateQuantity}
+                onRemove={removeFromCart}
+              />
+            ))}
+          </div>
+          <div className={styles.summary}>
+            <p className={styles.total}>Total: ${total.toFixed(2)}</p>
+            <button
+              type='button'
+              className={styles.checkoutButton}
+              onClick={handleCheckout}
+            >
+              Checkout
+            </button>
+          </div>
         </>
       )}
-    </>
+    </section>
   );
 }
