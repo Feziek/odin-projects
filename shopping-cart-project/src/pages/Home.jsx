@@ -1,15 +1,22 @@
+import { Link } from 'react-router';
+import styles from '../styles/Home.module.css';
+
 export default function Home() {
   return (
-    <section className='hero'>
+    <section className={styles.hero}>
       <h1>Shop with Ease</h1>
       <p>
         From finding your favorites to an easy checkout, we’re here to make your
         experience smooth as possible.
       </p>
-      <section className='button-section'>
-        <button>Shop now.</button>
-        <button>View your Cart.</button>
-      </section>
+      <div className={styles.buttonSection}>
+        <Link to='/shop' className={styles.primaryButton}>
+          Shop now.
+        </Link>
+        <Link to='/cart' className={styles.secondaryButton}>
+          View your Cart.
+        </Link>
+      </div>
     </section>
   );
 }
