@@ -1,5 +1,70 @@
-* {
-  padding: 0;
-  margin: 0;
+:root {
+  --ink: #0f1e3d;
+  --muted: #5b6b8a;
+  --blue: #1d4ed8;
+  --blue-dark: #1e3a8a;
+  --blue-tint: #e8f0fe;
+  --line: #d9e2f1;
+  --page: #f5f8fd;
+  --surface: #ffffff;
+  --danger: #c62828;
+  --radius: 10px;
+  --content-width: 1200px;
+
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+}
+
+main {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none;
+    animation: none;
+  }
 }
