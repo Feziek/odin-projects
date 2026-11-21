@@ -86,9 +86,8 @@ Each component has its own `.module.css` file next to it.
 
 ## Known limitations and ideas
 
-- The cart is kept in memory only, so it resets on page refresh (persisting it to `localStorage` would fix this)
+- The cart is kept in memory only, so it resets on page refresh
 - Checkout shows a toast and does not clear the cart
-- Unknown URLs have no fallback page yet
 - The product fetch has a loading state but no error state yet
 
 ## Testing
